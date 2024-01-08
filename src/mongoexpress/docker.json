@@ -1,11 +1,11 @@
 {
   "nom": "mongoexpress",
-  "version": "2024.0.1",
+  "version": "2024.0.2",
   "securite": "3.protege",
   "dependances": [
     {
       "name": "mongoexpress",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_mongoexpress:1.0.0-alpha.master.1\n",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_mongoexpress:1.0.0-alpha.master.1",
       "certificat": {"roles": ["mongoexpress"], "dns": {"hostnames": ["mongoexpress"]}},
       "generateur": ["mongoexpress"],
       "env": {
