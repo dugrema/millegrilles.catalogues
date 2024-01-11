@@ -19,7 +19,7 @@ location /collections/fichiers {{
 
   # consignation.fichiers supporte les transfert avec PUT/POST/DELETE
   # Ces transferts doivent etre bloques (utiliser /upload de collections a la place)
-  if ($request_method !~ GET|OPTIONS) {{
+  if ($request_method !~ GET|OPTIONS|HEAD) {{
     return 405;
   }}
 
