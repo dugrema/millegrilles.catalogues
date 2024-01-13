@@ -23,6 +23,10 @@ location /collections/fichiers {{
     return 405;
   }}
 
+  # Desactiver buffering de transfert
+  proxy_buffering off;  # Desactiver buffering de la reponse (download)
+  proxy_request_buffering off;  # Desactiver buffering de la request (upload)
+
   # Rewrite pour consignation.grosfichiers
   rewrite ^(/collections/fichiers/)(.*)$ /fichiers_transfert/$2 break;
 
@@ -69,6 +73,10 @@ location /collections/streams {{
   proxy_set_header  X-Original-URI $request_uri;  # Passthrough du jwt au besoin
 
   include /etc/nginx/conf.d/component_proxyheaders.include;
+
+  # Desactiver buffering de transfert
+  proxy_buffering off;  # Desactiver buffering de la reponse (download)
+  proxy_request_buffering off;  # Desactiver buffering de la request (upload)
 
   # Range est requis pour slice
   #proxy_set_header  Range $slice_range;
