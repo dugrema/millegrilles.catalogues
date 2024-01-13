@@ -6,6 +6,10 @@ location /stream_transfert {{
   include /etc/nginx/conf.d/component_gzip.include;
   include /etc/nginx/conf.d/component_cors.include;
 
-  proxy_read_timeout 120s;
+  proxy_read_timeout 60s;
   client_max_body_size 64k;
+
+  # Desactiver buffering de transfert
+  proxy_buffering off;  # Desactiver buffering de la reponse (download)
+  proxy_request_buffering off;  # Desactiver buffering de la request (upload)
 }}
