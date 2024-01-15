@@ -102,6 +102,11 @@ location /collections/fichiers/upload {{
 
   proxy_read_timeout 5m;
   client_max_body_size 101m;
+
+  # Desactiver buffering de transfert
+  # Permet de retourner un code HTTP 409 si la part de fichier est deja recue durant le resume upload
+  proxy_buffering off;  # Desactiver buffering de la reponse (download)
+  proxy_request_buffering off;  # Desactiver buffering de la request (upload)
 }}
 
 location /collections {{
