@@ -1,0 +1,53 @@
+{
+  "name": "redis",
+  "image": "docker.maple.maceroc.com:5000/millegrilles_redis:7.0.master.3",
+  "certificat": {"roles": ["redis"], "dns": {"localhost": true, "hostnames": ["redis"], "domain": true}},
+  "passwords": ["redis"],
+  "mounts": [{"source": "mg-redis", "target":  "/data", "type": "volume"}],
+  "configs": [
+    {
+      "name": "pki.redis",
+      "current": "cert",
+      "filename": "/run/secrets/cert.pem"
+    },
+    {"name": "pki.millegrille", "filename": "/run/secrets/millegrille.cert.pem"}
+  ],
+  "secrets": [
+    {
+      "name": "pki.redis",
+      "current": "key",
+      "filename": "key.pem"
+    },
+    {
+      "name": "passwd.redis",
+      "current": "password",
+      "filename": "passwd.redis.txt"
+    }
+  ],
+  "constraints": ["node.labels.millegrilles.redis == true"],
+  "endpoint_spec": {
+    "mode": "vip",
+    "ports": [
+      {
+        "published_port": 6379,
+        "target_port": 6379,
+        "protocol": "tcp"
+      }
+    ]
+  },
+  "networks": [{"target": "millegrille_net", "aliases": ["redis"]}],
+  "labels": {"millegrille": "${IDMG}"},
+  "resources": {
+    "cpu_limit": 1500000000,
+    "mem_limit": 500000000
+  },
+  "restart_policy": {
+    "condition": "any",
+    "delay": 5000000000,
+    "max_attempts": 1000
+  },
+  "mode": {
+    "mode": "replicated",
+    "replicas": 1
+  }
+}
