@@ -1,6 +1,6 @@
-set $upstream_fichiers https://stream:1443;
-#set $upstream_fichiers https://[SERVEUR]:3029;
-proxy_pass $upstream_fichiers;
+set $upstream_stream https://stream:1443;
+#set $upstream_stream https://[SERVEUR]:3029;
+proxy_pass $upstream_stream;
 
 proxy_ssl_certificate         /run/secrets/nginx.cert.pem;
 proxy_ssl_certificate_key     /run/secrets/nginx.key.pem;
