@@ -1,3 +1,10 @@
+location /messagerie/socket.io {{
+  include /etc/nginx/conf.d/modules/messagerie.app.proxypass;
+#set $upstream_collections https://__SERVER__:4039;
+#proxy_pass $upstream_collections;
+  include /etc/nginx/conf.d/component_base_auth.include;
+}}
+
 location = /messagerie/initSession {{
   include /etc/nginx/conf.d/modules/messagerie.app.proxypass;
   proxy_pass_request_body off;
@@ -88,6 +95,8 @@ location /messagerie/upload {{
 
 location /messagerie {{
   include /etc/nginx/conf.d/modules/messagerie.app.proxypass;
+#set $upstream_messagerie https://__SERVER__:3040;
+#proxy_pass $upstream_messagerie;
 
   include /etc/nginx/conf.d/auth.include;
 
