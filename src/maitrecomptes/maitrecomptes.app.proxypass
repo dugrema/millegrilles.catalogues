@@ -1,4 +1,5 @@
 set $upstream_maitredescomptes https://maitrecomptes:1443;
+# set $upstream_maitredescomptes https://[**DEV SERVER**]:4001;
 proxy_pass $upstream_maitredescomptes;
 
 proxy_ssl_certificate         /run/secrets/nginx.cert.pem;
