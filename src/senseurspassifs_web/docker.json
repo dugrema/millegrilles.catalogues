@@ -1,6 +1,6 @@
 {
   "nom": "senseurspassifs_web",
-  "version": "2024.1.2",
+  "version": "2024.1.3",
   "description": {
     "en": "Senseurs Passifs (web)",
     "fr": "Senseurs Passifs (web)"
@@ -9,7 +9,7 @@
   "dependances": [
     {
       "name": "senseurspassifs_web",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_web_senseurspassifs:2024.1.11",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_web_senseurspassifs:2024.1.13",
       "certificat": {
         "roles": ["senseurspassifs_web"],
         "dns": {"localhost": true, "hostnames": ["senseurspassifs_web"], "domain": true},
