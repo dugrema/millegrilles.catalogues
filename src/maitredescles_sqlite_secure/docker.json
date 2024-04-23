@@ -1,11 +1,11 @@
 {
   "nom": "maitredescles_sqlite_secure",
-  "version": "2024.3.2",
+  "version": "2024.3.3",
   "securite": "4.secure",
   "dependances": [
     {
       "name": "maitredescles_sqlite_secure",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_maitredescles:2024.3.15",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_maitredescles:2024.3.16",
       "certificat": {
         "roles": ["maitredescles_sqlite_secure","maitredescles"],
         "domaines": ["MaitreDesCles"],
