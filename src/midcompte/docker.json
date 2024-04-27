@@ -1,11 +1,11 @@
 {
   "nom": "midcompte",
-  "version": "2024.3.1",
+  "version": "2024.3.2",
   "securite": "4.secure",
   "dependances": [
     {
       "name": "midcompte",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_midcompte_python:2024.3.39",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_midcompte_python:2024.3.40",
       "certificat": {
         "roles": [
           "midcompte"
@@ -23,7 +23,8 @@
         "node.labels.millegrilles.midcompte == true"
       ],
       "env": {
-        "MQ_URL": ""
+        "MQ_URL": "",
+        "WEB_PORT": "2444"
       },
       "configs": [
         {
