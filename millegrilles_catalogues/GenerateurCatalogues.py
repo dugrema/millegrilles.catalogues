@@ -12,6 +12,7 @@ from base64 import b64encode
 from millegrilles_messages.messages import Constantes
 from millegrilles_messages.messages.CleCertificat import CleCertificat
 from millegrilles_messages.messages.FormatteurMessages import SignateurTransactionSimple, FormatteurMessageMilleGrilles
+from millegrilles_messages.messages.EnveloppeCertificat import EnveloppeCertificat
 
 
 class Generateur:
@@ -33,9 +34,10 @@ class Generateur:
         clecert = CleCertificat.from_files(PATH_CORE_CLE, PATH_CORE_CERT)
         enveloppe = clecert.enveloppe
         idmg = enveloppe.idmg
+        enveloppe_ca = EnveloppeCertificat.from_pem(self.__cert_millegrille)
 
         signateur = SignateurTransactionSimple(clecert)
-        self._formatteur = FormatteurMessageMilleGrilles(idmg, signateur)
+        self._formatteur = FormatteurMessageMilleGrilles(idmg, signateur, enveloppe_ca)
 
         self.__logger = logging.getLogger(__name__ + '.' + self.__class__.__name__)
 
