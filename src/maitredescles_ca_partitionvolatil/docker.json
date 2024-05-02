@@ -1,11 +1,11 @@
 {
   "nom": "maitredescles_ca_partvolatil",
-  "version": "2024.3.5",
+  "version": "2024.4.0",
   "securite": "3.protege",
   "dependances": [
     {
       "name": "maitredescles_ca_partvolatil",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_maitredescles:2024.3.23",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_maitredescles:2024.4.26",
       "certificat": {
         "roles": ["maitredescles_connexion"],
         "domaines": ["MaitreDesCles"],
