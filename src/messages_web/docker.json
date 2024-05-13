@@ -1,0 +1,83 @@
+{
+  "nom": "messages_web",
+  "version": "2024.4.1",
+  "description": {
+    "en": "Messages (web)",
+    "fr": "Messages (web)"
+  },
+  "securite": "2.prive",
+  "dependances": [
+    {
+      "name": "messages_web",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_messages_web:2024.4.3",
+      "certificat": {
+        "roles": ["messages_web"],
+        "dns": {"localhost": true, "hostnames": ["messages_web"], "domain": true},
+        "exchanges": ["2.prive", "1.public"]
+      },
+      "env": {
+        "MQ_HOSTNAME": "${MQ_HOSTNAME}",
+        "MQ_PORT": "${MQ_PORT}",
+        "REDIS_HOSTNAME": "redis",
+        "REDIS_PORT": "6379",
+        "REDIS_PASSWORD_PATH": "/run/secrets/passwd.redis.txt",
+        "CERT_PEM": "/run/secrets/cert.pem",
+        "KEY_PEM": "/run/secrets/key.pem",
+        "CA_PEM": "/run/secrets/millegrille.cert.pem",
+        "WEB_PORT": "1443"
+      },
+      "configs": [
+        {
+          "name": "pki.messages_web",
+          "current": "cert",
+          "filename": "/run/secrets/cert.pem"
+        },
+        {
+          "name": "pki.millegrille",
+          "filename": "/run/secrets/millegrille.cert.pem"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "pki.messages_web",
+          "current": "key",
+          "filename": "key.pem"
+        },
+        {
+          "name": "passwd.redis",
+          "current": "password",
+          "filename": "passwd.redis.txt"
+        }
+      ],
+      "networks": [
+        {
+          "target": "millegrille_net",
+          "aliases": [
+            "senseurspassifs_web"
+          ]
+        },
+        {"target": "bridge"}
+      ],
+      "labels": {
+        "url": "https://${HOSTNAME}/messages",
+        "securite": "2.prive"
+      },
+      "resources": {
+        "cpu_limit": 500000000,
+        "mem_limit": 250000000
+      },
+      "restart_policy": {
+        "condition": "on-failure",
+        "delay": 60000000000,
+        "max_attempts": 1000
+      },
+      "mode": {
+        "mode": "replicated",
+        "replicas": 1
+      }
+    }
+  ],
+  "nginx": {
+    "conf": ["messages_web.app.location"]
+  }
+}
