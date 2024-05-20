@@ -1,6 +1,6 @@
 {
   "nom": "messages_web",
-  "version": "2024.4.1",
+  "version": "2024.4.2",
   "description": {
     "en": "Messages (web)",
     "fr": "Messages (web)"
@@ -53,7 +53,7 @@
         {
           "target": "millegrille_net",
           "aliases": [
-            "senseurspassifs_web"
+            "messages_web"
           ]
         },
         {"target": "bridge"}
