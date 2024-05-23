@@ -34,7 +34,7 @@ location /reception {{
     client_max_body_size 106M;
 }}
 
-location /reception/fichiers {
+location /reception/fichiers {{
     proxy_pass $upstream_reception;
     include /etc/nginx/conf.d/component_gzip.include;
 

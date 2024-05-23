@@ -1,6 +1,6 @@
 {
   "nom": "reception",
-  "version": "2024.4.3",
+  "version": "2024.4.4",
   "securite": "1.public",
   "dependances": [
     {
