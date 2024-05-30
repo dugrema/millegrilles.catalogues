@@ -1,11 +1,11 @@
 {
   "nom": "reception",
-  "version": "2024.4.4",
+  "version": "2024.4.5",
   "securite": "1.public",
   "dependances": [
     {
       "name": "reception",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_reception_python:2024.4.4",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_reception_python:2024.4.5",
       "certificat": {
         "roles": [ "reception" ],
         "exchanges": [ "1.public" ],
