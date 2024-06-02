@@ -1,0 +1,58 @@
+set $upstream_hebergement_python https://hebergement_python:1443;
+#set $upstream_hebergement_python https://[SERVER]:4016;
+
+location /hebergement/ws/fichiers {{
+    proxy_pass $upstream_hebergement_python;
+    include /etc/nginx/conf.d/component_base_auth.include;
+
+    # Activer l'auth plugin
+    auth_request      /hebergement/auth;
+}}
+
+location /hebergement {{
+    proxy_pass $upstream_hebergement_python;
+
+    include /etc/nginx/conf.d/auth.include;
+
+    include /etc/nginx/conf.d/component_proxyheaders.include;
+    include /etc/nginx/conf.d/component_gzip.include;
+    proxy_read_timeout 15m;
+    client_max_body_size 64k;
+}}
+
+location /hebergement/fichiers {{
+    include /etc/nginx/conf.d/modules/fichiers.proxypass;
+
+    include /etc/nginx/conf.d/component_proxyheaders.include;
+    include /etc/nginx/conf.d/component_gzip.include;
+    proxy_read_timeout 120s;
+    client_max_body_size 101m;
+
+    # consignation.fichiers supporte les transfert avec PUT/POST/DELETE
+    # Ces transferts doivent etre bloques (utiliser /upload de collections a la place)
+    if ($request_method !~ GET|OPTIONS|HEAD) {{
+        return 405;
+    }}
+
+    # Activer l'auth plugin
+    auth_request      /hebergement/auth;
+
+    # Retourner l'identificateur usager
+    auth_request_set  $auth_x_user_name  $upstream_http_x_user_name;
+    auth_request_set  $auth_x_user_id    $upstream_http_x_user_id;
+    auth_request_set  $auth_x_auth       $upstream_http_x_auth;
+
+    # proxy_set_header  Host              $host;
+    proxy_set_header  X-Hostname      $hostname;
+    proxy_set_header  X-Auth          $auth_x_auth;
+    proxy_set_header  X-Real-IP       $remote_addr;
+    proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header  X-Original-Uri  $request_uri;
+
+    # Desactiver buffering de transfert
+    proxy_buffering off;  # Desactiver buffering de la reponse (download)
+    proxy_request_buffering off;  # Desactiver buffering de la request (upload)
+
+    # Rewrite pour consignation.grosfichiers
+    rewrite ^(/hebergement/fichiers/)(.*)$ /fichiers_transfert/$2 break;
+}}
