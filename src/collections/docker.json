@@ -1,6 +1,6 @@
 {
   "nom": "collections",
-  "version": "2024.5.0",
+  "version": "2024.5.1",
   "securite": "2.prive",
   "dependances": [
     {
@@ -75,6 +75,6 @@
     }
   ],
   "nginx": {
-    "conf": ["collections.app.location", "collections.app.proxypass"]
+    "conf": ["collections.app.location", "collections.app.location.tls", "collections.app.proxypass"]
   }
 }
