@@ -1,11 +1,11 @@
 {
   "nom": "grosfichiers_backend",
-  "version": "2024.5.1",
+  "version": "2024.5.2",
   "securite": "3.protege",
   "dependances": [
     {
       "name": "grosfichiers_backend",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_grosfichiers:2024.5.36",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_grosfichiers:2024.5.37",
       "certificat": {
         "roles": ["grosfichiers"],
         "domaines": ["GrosFichiers"],
