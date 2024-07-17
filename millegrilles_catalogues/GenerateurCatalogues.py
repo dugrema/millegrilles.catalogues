@@ -28,8 +28,8 @@ class Generateur:
         with open(PATH_CA, 'r') as fichier:
             self.__cert_millegrille = fichier.read()
 
-        self.__repertoire_src = path.abspath('./src')
-        self.__repertoire_signed = path.abspath('./signed')
+        self.__repertoire_src = path.abspath('../src')
+        self.__repertoire_signed = path.abspath('../signed')
 
         clecert = CleCertificat.from_files(PATH_CORE_CLE, PATH_CORE_CERT)
         enveloppe = clecert.enveloppe

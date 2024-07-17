@@ -1,11 +1,11 @@
 {
   "nom": "maitrecomptes",
-  "version": "2024.1.3",
+  "version": "2024.6.1",
   "securite": "2.prive",
   "dependances": [
     {
       "name": "maitrecomptes",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_maitrecomptes_python:2024.1.8",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_maitrecomptes_python:2024.6.13",
       "certificat": {
         "roles": [ "maitrecomptes" ],
         "exchanges": [ "2.prive", "1.public" ],
@@ -102,8 +102,7 @@
   ],
   "nginx": {
     "conf": [
-      "maitrecomptes.app.location",
-      "maitrecomptes.app.proxypass"
+      "maitrecomptes.app.location"
     ]
   }
 }
