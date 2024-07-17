@@ -1,14 +1,15 @@
-location /senseurspassifs/socket.io {{
-  set $upstream_senseurspassifs https://senseurspassifs_web:1443;
+set $upstream_senseurspassifs https://senseurspassifs_web:1443;
 #set $upstream_senseurspassifs https://[SERVER]:4013;
+
+location /senseurspassifs/socket.io {{
   proxy_pass $upstream_senseurspassifs;
   include /etc/nginx/conf.d/component_base_auth.include;
 }}
 
 location /senseurspassifs {{
-  set $upstream_senseurspassifs https://senseurspassifs_web:1443;
-#set $upstream_senseurspassifs https://[SERVER]:3014;
   proxy_pass $upstream_senseurspassifs;
+#set $upstream_senseurspassifs_react https://[SERVER]:3014;
+#proxy_pass $upstream_senseurspassifs_react;
 
   include /etc/nginx/conf.d/auth.include;
 
