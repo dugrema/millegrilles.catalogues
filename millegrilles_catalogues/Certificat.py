@@ -17,13 +17,13 @@ def generer_certificat_signature(args: argparse.Namespace):
     if path_ca.exists() is False:
         raise FileNotFoundError('Fichier de cle non trouve')
 
-    clecert = charger_cle(path_ca)
+    clecert, certificat_ca = charger_cle(path_ca)
     output_path = preparer_output_folder(args.output)
     cle_cert = generer_certificat(clecert)
-    sauvegarder(cle_cert, output_path)
+    sauvegarder(cle_cert, certificat_ca, output_path)
 
 
-def charger_cle(path_ca: pathlib.Path) -> CleCertificat:
+def charger_cle(path_ca: pathlib.Path) -> (CleCertificat, str):
 
     if path_ca.name.endswith('.json'):
         with path_ca.open('rt') as fichier:
@@ -33,16 +33,16 @@ def charger_cle(path_ca: pathlib.Path) -> CleCertificat:
 
     racine = cle_ca['racine']
     cle_chiffree = racine['cleChiffree']
-    certificat = racine['certificat']
+    certificat_ca = racine['certificat']
 
     pass_ca = getpass.getpass('Entrez le mot de passe du certificat CA :\n')
 
-    cle_cert = CleCertificat.from_pems(cle_chiffree, certificat, pass_ca)
+    cle_cert = CleCertificat.from_pems(cle_chiffree, certificat_ca, pass_ca)
 
     # Verifier la correspondance cle et certificat. raise Exception en cas de probleme.
     cle_cert.cle_correspondent()
 
-    return cle_cert
+    return cle_cert, certificat_ca
 
 
 def preparer_output_folder(output: Optional[str]) -> pathlib.Path:
@@ -74,17 +74,21 @@ def generer_certificat(cle_ca: CleCertificat) -> CleCertificat:
     return certificat.clecertificat
 
 
-def sauvegarder(certificat: CleCertificat, output: pathlib.Path):
+def sauvegarder(certificat: CleCertificat, certificat_ca, output: pathlib.Path):
     key_pem = certificat.private_key_bytes()
     cert_pem = certificat.enveloppe.certificat_pem
 
     key_path = pathlib.Path(output, 'signing_key.pem')
     cert_path = pathlib.Path(output, 'signing_cert.pem')
+    ca_path = pathlib.Path(output, 'signing_ca.pem')
 
     with open(key_path, 'wb') as fichier:
         fichier.write(key_pem)
 
     with open(cert_path, 'wt') as fichier:
         fichier.write(cert_pem)
+
+    with open(ca_path, 'wt') as fichier:
+        fichier.write(certificat_ca)
 
     print('Fichiers signing_key.pem et signing_cert.pem sauvegardes sous %s' % output)

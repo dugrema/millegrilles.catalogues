@@ -12,10 +12,13 @@ def main():
     if args.command == 'certificat':
         from millegrilles_catalogues import Certificat
         Certificat.generer_certificat_signature(args)
-    elif args.command == 'signer':
+    elif args.command == 'catalogues':
         from millegrilles_catalogues.GenerateurCatalogues import Generateur
         generation = Generateur(args)
         generation.generer()
+    elif args.command == 'webapi':
+        from millegrilles_catalogues.Webapi import signer_webapi
+        signer_webapi(args)
     else:
         raise Exception('Commande non supportee')
 
@@ -31,12 +34,16 @@ def parse():
 
     subparsers = parser.add_subparsers(dest='command', required=True, help="Commandes")
 
-    subparser_signer = subparsers.add_parser('signer', help='Signer les catalogues')
-    subparser_signer.add_argument('path', nargs='+', help='Repertoire ou fichier a signer')
-
     subparser_certificat = subparsers.add_parser('certificat', help='Generer un nouveau certificat de signature')
     subparser_certificat.add_argument('--output', help='Repertoire utilise pour conserver le certificat')
     subparser_certificat.add_argument('ca', help='Fichier de certificat CA')
+
+    subparser_signer = subparsers.add_parser('catalogues', help='Signer les catalogues')
+    subparser_signer.add_argument('path', nargs='+', help='Repertoire ou fichier a signer')
+
+    subparser_signer = subparsers.add_parser('webapi', help='Signer un fichier webapi')
+    subparser_signer.add_argument('--output', help='Fichier utilise pour conserver l\'output')
+    subparser_signer.add_argument('path', help='Fichier a signer')
 
     args = parser.parse_args()
     if args.verbose:
