@@ -19,6 +19,9 @@ def main():
     elif args.command == 'webapi':
         from millegrilles_catalogues.Webapi import signer_webapi
         signer_webapi(args)
+    elif args.command == 'digest':
+        from millegrilles_catalogues.Hachage import hacher_fichier
+        hacher_fichier(args)
     else:
         raise Exception('Commande non supportee')
 
@@ -44,6 +47,11 @@ def parse():
     subparser_signer = subparsers.add_parser('webapi', help='Signer un fichier webapi')
     subparser_signer.add_argument('--output', help='Fichier utilise pour conserver l\'output')
     subparser_signer.add_argument('path', help='Fichier a signer')
+
+    subparser_digest = subparsers.add_parser('digest', help='Hacher un fichier')
+    subparser_digest.add_argument('--name', default='blake2s-256', help='Nom de l\'algorithme de hachage (blake2s-256, blake2b-512)')
+    subparser_digest.add_argument('--encoding', default='base64', help='Encodage (hex, base64, base58btc) de l\'algorithme de hachage')
+    subparser_digest.add_argument('filepath', help='Fichier a hacher')
 
     args = parser.parse_args()
     if args.verbose:
