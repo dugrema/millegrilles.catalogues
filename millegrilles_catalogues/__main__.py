@@ -20,7 +20,7 @@ def main():
         from millegrilles_catalogues.Webapi import signer_webapi
         signer_webapi(args)
     elif args.command == 'digest':
-        from millegrilles_catalogues.Hachage import hacher_fichier
+        from millegrilles_catalogues.Hachage import main as hacher_fichier
         hacher_fichier(args)
     else:
         raise Exception('Commande non supportee')
