@@ -10,14 +10,16 @@ from millegrilles_messages.messages.EnveloppeCertificat import EnveloppeCertific
 from millegrilles_messages.messages.CleCertificat import CleCertificat
 from millegrilles_messages.messages.FormatteurMessages import SignateurTransactionSimple, FormatteurMessageMilleGrilles
 
+from millegrilles_catalogues.CleSignature import CleSignature
+
 
 def signer_webapi(args: argparse.Namespace):
     path_fichier = pathlib.Path(args.path)
     if path_fichier.exists() is False:
         raise FileNotFoundError('Fichier de cle non trouve')
 
-    clecert, ca_cert = charger_cle()
-    signer_fichier(path_fichier, clecert, ca_cert)
+    cle = CleSignature.default()
+    signer_fichier(path_fichier, cle)
 
 
 def charger_cle(path_cle: Optional[pathlib.Path] = None, path_cert: Optional[pathlib.Path] = None,
@@ -49,12 +51,14 @@ def charger_cle(path_cle: Optional[pathlib.Path] = None, path_cert: Optional[pat
     return cle_cert, ca_cert
 
 
-def signer_fichier(path_fichier: pathlib.Path, clecert: CleCertificat, ca_cert: EnveloppeCertificat) -> dict:
+def signer_fichier(path_fichier: pathlib.Path, cle: CleSignature) -> dict:
     with open(path_fichier, 'rt') as fichier:
         data = json.load(fichier)
 
-    idmg = clecert.enveloppe.idmg
+    clecert = cle.cle_cert
+    ca_cert = cle.ca
 
+    idmg = clecert.enveloppe.idmg
     signateur = SignateurTransactionSimple(clecert)
     formatteur = FormatteurMessageMilleGrilles(idmg, signateur, ca_cert)
 

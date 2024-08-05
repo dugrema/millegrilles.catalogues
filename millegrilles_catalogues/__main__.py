@@ -12,8 +12,8 @@ def main():
     if args.command == 'certificat':
         from millegrilles_catalogues import Certificat
         Certificat.generer_certificat_signature(args)
-    elif args.command == 'catalogues':
-        from millegrilles_catalogues.GenerateurCatalogues import Generateur
+    elif args.command == 'applications':
+        from millegrilles_catalogues.SignateurApplications import Generateur
         generation = Generateur(args)
         generation.generer()
     elif args.command == 'webapi':
@@ -41,12 +41,13 @@ def parse():
     subparser_certificat.add_argument('--output', help='Repertoire utilise pour conserver le certificat')
     subparser_certificat.add_argument('ca', help='Fichier de certificat CA')
 
-    subparser_signer = subparsers.add_parser('catalogues', help='Signer les catalogues')
-    subparser_signer.add_argument('path', nargs='+', help='Repertoire ou fichier a signer')
+    subparser_applications = subparsers.add_parser('applications', help='Signer les applications')
+    subparser_applications.add_argument('--output', help='Repertoire ou placer les configurations signees')
+    subparser_applications.add_argument('path', type=str, help='Repertoire de fichiers a signer')
 
-    subparser_signer = subparsers.add_parser('webapi', help='Signer un fichier webapi')
-    subparser_signer.add_argument('--output', help='Fichier utilise pour conserver l\'output')
-    subparser_signer.add_argument('path', help='Fichier a signer')
+    subparser_webapi = subparsers.add_parser('webapi', help='Signer un fichier webapi')
+    subparser_webapi.add_argument('--output', type=str, help='Fichier utilise pour conserver l\'output')
+    subparser_webapi.add_argument('path', type=str, help='Fichier a signer')
 
     subparser_digest = subparsers.add_parser('digest', help='Hacher un fichier')
     subparser_digest.add_argument('--name', default='blake2s-256', help='Nom de l\'algorithme de hachage (blake2s-256, blake2b-512)')

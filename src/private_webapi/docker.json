@@ -1,0 +1,117 @@
+{
+  "nom": "private_webapi",
+  "version": "2024.6.0",
+  "securite": "2.prive",
+  "dependances": [
+    {
+      "name": "private_webapi",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_web_python:2024.6.31",
+      "args": [
+        "-m",
+        "millegrilles_web"
+      ],
+      "archives": [
+        {
+          "src": "https://docker.maple.maceroc.com/archives/authentication/millegrilles_authentication_typescript.2024.6.11.tar.gz",
+          "digest": "4OQCILgACRwnszRl4zFyVXF2a/RSA18fAhMaMsdEPT2M27n+",
+          "location": "nginx:html/applications/millegrilles"
+        }
+      ],
+      "certificat": {
+        "roles": [
+          "private_webapi"
+        ],
+        "exchanges": [
+          "2.prive",
+          "1.public"
+        ],
+        "dns": {
+          "localhost": true,
+          "hostnames": [
+            "private-webapi"
+          ],
+          "domain": true
+        }
+      },
+      "passwords": [
+        "privatewebapisession"
+      ],
+      "env": {
+        "MQ_HOSTNAME": "${MQ_HOSTNAME}",
+        "MQ_PORT": "${MQ_PORT}",
+        "REDIS_HOSTNAME": "redis",
+        "REDIS_PORT": "6379",
+        "REDIS_PASSWORD_PATH": "/run/secrets/passwd.redis.txt",
+        "CERT_PEM": "/run/secrets/cert.pem",
+        "KEY_PEM": "/run/secrets/key.pem",
+        "CA_PEM": "/run/secrets/millegrille.cert.pem",
+        "WEB_PORT": "1443"
+      },
+      "constraints": [
+        "node.labels.millegrilles.web == true"
+      ],
+      "configs": [
+        {
+          "name": "pki.private_webapi",
+          "current": "cert",
+          "filename": "/run/secrets/cert.pem"
+        },
+        {
+          "name": "pki.private_webapi",
+          "current": "cert",
+          "filename": "/run/secrets/webcert.pem"
+        },
+        {
+          "name": "pki.millegrille",
+          "filename": "/run/secrets/millegrille.cert.pem"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "pki.private_webapi",
+          "current": "key",
+          "filename": "key.pem"
+        },
+        {
+          "name": "pki.private_webapi",
+          "current": "key",
+          "filename": "webkey.pem"
+        },
+        {
+          "name": "passwd.redis",
+          "current": "password",
+          "filename": "passwd.redis.txt"
+        }
+      ],
+      "networks": [
+        {
+          "target": "millegrille_net",
+          "aliases": [
+            "private-webapi"
+          ]
+        }
+      ],
+      "labels": {
+        "millegrille": "${IDMG}"
+      },
+      "resources": {
+        "cpu_limit": 2000000000,
+        "mem_limit": 150000000
+      },
+      "restart_policy": {
+        "condition": "on-failure",
+        "delay": 5000000000,
+        "max_attempts": 5
+      },
+      "mode": {
+        "mode": "replicated",
+        "replicas": 1
+      }
+    }
+  ],
+  "nginx": {
+    "conf": [
+      "private_webapi.app.location"
+    ]
+  }
+}
