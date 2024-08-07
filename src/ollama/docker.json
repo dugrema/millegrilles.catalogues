@@ -1,0 +1,90 @@
+{
+  "nom": "ollama",
+  "version": "2024.6.0",
+  "securite": "3.protege",
+  "dependances": [
+    {
+      "name": "ollama",
+      "image": "ollama/ollama:0.3.4",
+      "constraints": ["node.labels.millegrilles.ollama == true"],
+      "mounts": [
+        {"source": "ollama-models", "target":  "/root/.ollama", "type": "volume"}
+      ],
+      "networks": [
+        {"target": "millegrille_net", "aliases": ["ollama"]}
+      ],
+      "resources": {
+        "cpu_limit": 7000000000,
+        "mem_limit": 9500000000
+      },
+      "restart_policy": {
+        "condition": "on-failure",
+        "delay": 60000000000,
+        "max_attempts": 1000
+      },
+      "mode": {
+        "mode": "replicated",
+        "replicas": 1
+      }
+    },
+    {
+      "name": "ollama_relai",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_ollama_relai_python:2024.6.0",
+      "args": ["-m", "millegrilles_ollama_relai", "--verbose"],
+     "certificat": {
+        "roles": ["ollama_relai"],
+        "exchanges": ["3.protege", "2.prive", "1.public"]
+      },
+      "env": {
+        "MQ_HOSTNAME": "${MQ_HOSTNAME}",
+        "MQ_PORT": "${MQ_PORT}",
+        "CERT_PEM": "/run/secrets/cert.pem",
+        "KEY_PEM": "/run/secrets/key.pem",
+        "CA_PEM": "/run/secrets/millegrille.cert.pem",
+        "MG_REDIS_HOST": "redis",
+        "MG_REDIS_PORT": "6379"
+      },
+      "configs": [
+        {
+          "name": "pki.ollama_relai",
+          "current": "cert",
+          "filename": "/run/secrets/cert.pem"
+        },
+        {
+          "name": "pki.millegrille",
+          "filename": "/run/secrets/millegrille.cert.pem"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "pki.ollama_relai",
+          "current": "key",
+          "filename": "key.pem"
+        },
+        {
+          "name": "passwd.redis",
+          "current": "password",
+          "filename": "passwd.redis.txt"
+        }
+      ],
+      "networks": [
+        {
+          "target": "millegrille_net"
+        }
+      ],
+      "resources": {
+        "cpu_limit": 500000000,
+        "mem_limit": 150000000
+      },
+      "restart_policy": {
+        "condition": "on-failure",
+        "delay": 60000000000,
+        "max_attempts": 1000
+      },
+      "mode": {
+        "mode": "replicated",
+        "replicas": 1
+      }
+    }
+  ]
+}
