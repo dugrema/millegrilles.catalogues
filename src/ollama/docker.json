@@ -1,6 +1,6 @@
 {
   "nom": "ollama",
-  "version": "2024.6.0",
+  "version": "2024.6.1",
   "securite": "3.protege",
   "dependances": [
     {
@@ -33,6 +33,7 @@
       "args": ["-m", "millegrilles_ollama_relai", "--verbose"],
      "certificat": {
         "roles": ["ollama_relai"],
+        "domaines": ["ollama_relai"],
         "exchanges": ["3.protege", "2.prive", "1.public"]
       },
       "env": {
