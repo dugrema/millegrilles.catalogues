@@ -1,0 +1,10 @@
+# Application React private_apps
+location /apps {{
+  root /usr/share/nginx/html/applications;
+  add_header 'Cache-Control' 'public,max-age=120';
+  include /etc/nginx/conf.d/component_gzip.include;
+
+# DEV : Retirer les lignes precedentes et utiliser les lignes suivantes. Remplacer [**DEV SERVER**] par le hostname dev.
+# set $upstream_millegrilles_private_apps http://[**DEV SERVER**]:3005;
+# proxy_pass $upstream_millegrilles_private_apps;
+}}

@@ -1,0 +1,15 @@
+{
+  "name": "private_webapi",
+  "archives": [
+    {
+      "src": "https://docker.maple.maceroc.com/archives/private_apps/millegrilles_private_apps.2024.6.0.tar.gz",
+      "digest": "4OQCIFYqpmFLqkKxcrHHAGSJSotyozWygsXpKlHLoRKMajjo",
+      "location": "nginx:html/applications/apps"
+    }
+  ],
+  "nginx": {
+    "conf": [
+      "private_apps.location"
+    ]
+  }
+}
