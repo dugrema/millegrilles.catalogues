@@ -1,6 +1,6 @@
 {
   "nom": "mongoexpress",
-  "version": "2024.0.2",
+  "version": "2024.6.0",
   "securite": "3.protege",
   "dependances": [
     {
@@ -93,5 +93,15 @@
   "nginx": {
     "conf": ["mongoexpress.server"],
     "ports": [1443, 1444]
+  },
+  "web": {
+    "links": [{
+        "labels": {
+          "fr": {"name": "Mongo Express", "description": "Client pour la base de données principale de MilleGrilles."},
+          "en": {"name": "Mongo Express", "description": "Client for MilleGrilles' main database."}
+        },
+        "url": "https://${HOSTNAME}:1444",
+        "securite": "3.protege"
+    }]
   }
 }
