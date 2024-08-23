@@ -1,6 +1,6 @@
 {
   "nom": "collections",
-  "version": "2024.5.3",
+  "version": "2024.6.0",
   "securite": "2.prive",
   "dependances": [
     {
@@ -76,5 +76,15 @@
   ],
   "nginx": {
     "conf": ["collections.app.location", "collections.app.location.tls", "collections.app.proxypass"]
+  },
+  "web": {
+    "links": [{
+        "labels": {
+          "fr": {"name": "Collections", "description": "Gestionnaire de fichiers. Permet de conserver des documents et voir des vidéos."},
+          "en": {"name": "Collections", "description": "File manager. Supports uploading documents and streaming videos."}
+        },
+        "url": "https://${HOSTNAME}/collections",
+        "securite": "2.prive"
+    }]
   }
 }
