@@ -1,6 +1,6 @@
 {
   "nom": "documents_web",
-  "version": "2024.4.0",
+  "version": "2024.6.0",
   "securite": "2.prive",
   "dependances": [
     {
@@ -64,13 +64,21 @@
         "replicas": 1
       },
       "labels": {
-        "certificat": true,
-        "url": "https://${HOSTNAME}/documents",
-        "securite": "2.prive"
+        "certificat": true
       }
     }
   ],
   "nginx": {
     "conf": ["documents.app.location", "documents.app.proxypass"]
+  },
+  "web": {
+    "links": [{
+        "labels": {
+          "fr": {"name": "Documents", "description": "Application qui permet de créer et modifier du contenu texte."},
+          "en": {"name": "Documents", "description": "Application that creates and modifies online text documents."}
+        },
+        "url": "https://${HOSTNAME}/documents",
+        "securite": "2.prive"
+    }]
   }
 }

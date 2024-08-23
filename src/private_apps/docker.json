@@ -1,6 +1,6 @@
 {
   "nom": "private_apps",
-  "version": "2024.6.4",
+  "version": "2024.6.5",
   "securite": "2.prive",
   "dependances": [
     {
@@ -17,6 +17,25 @@
   "nginx": {
     "conf": [
       "private_apps.location"
+    ]
+  },
+  "web": {
+    "links": [
+      {
+        "labels": {
+          "fr": {"name": "Conversation IA", "description": "Converser avec un chatbot d'intelligence artificielle."},
+          "en": {"name": "IA chatbot", "description": "Discussion with an artificial intelligence chat bot."}
+        },
+        "url": "https://${HOSTNAME}/apps/aichat",
+        "securite": "2.prive"
+      },{
+        "labels": {
+          "fr": {"name": "Senseurs Passifs", "description": "Gestion d'appareils."},
+          "en": {"name": "Sensors and devices", "description": "Device management."}
+        },
+        "url": "https://${HOSTNAME}/apps/senseurspassifs",
+        "securite": "2.prive"
+      }
     ]
   }
 }
