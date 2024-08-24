@@ -1,6 +1,6 @@
 {
   "nom": "senseurspassifs_web",
-  "version": "2024.6.0",
+  "version": "2024.6.1",
   "description": {
     "en": "Senseurs Passifs (web)",
     "fr": "Senseurs Passifs (web)"
@@ -79,5 +79,15 @@
   ],
   "nginx": {
     "conf": ["senseurspassifs_web.app.location"]
+  },
+    "web": {
+    "links": [{
+        "labels": {
+          "fr": {"name": "Senseurs Passifs (original)", "description": "Gestion de senseurs et appareils. Application originale."},
+          "en": {"name": "Sensors and devices (original)", "description": "Sensor and device manangement. Original app."}
+        },
+        "url": "https://${HOSTNAME}/senseurspassifs",
+        "securite": "2.prive"
+    }]
   }
 }

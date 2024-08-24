@@ -1,6 +1,6 @@
 {
   "nom": "private_apps",
-  "version": "2024.6.6",
+  "version": "2024.6.7",
   "securite": "2.prive",
   "dependances": [
     {
@@ -24,7 +24,7 @@
       {
         "labels": {
           "fr": {"name": "Conversation IA", "description": "Converser avec un chatbot d'intelligence artificielle."},
-          "en": {"name": "IA chatbot", "description": "Discussion with an artificial intelligence chat bot."}
+          "en": {"name": "AI chatbot", "description": "Discussion with an artificial intelligence chat bot."}
         },
         "url": "https://${HOSTNAME}/apps/aichat",
         "securite": "2.prive"
