@@ -29,13 +29,13 @@ location /apps {{
   try_files $uri $uri/ /apps/index.html;
 
 # DEV : Retirer root, include et add_header Cache-Control et utiliser les lignes suivantes. Remplacer [**DEV SERVER**] par le hostname dev.
-# set $upstream_millegrilles_private_apps http://[**DEV SERVER**]:3005;
+# set $upstream_millegrilles_private_apps https://[**DEV SERVER**]:3005;
 # proxy_pass $upstream_millegrilles_private_apps;
 }}
 
 # React development only
 #location /apps/ws {{
-#  set $upstream_millegrilles_private_apps_ws http://[**DEV SERVER**]:3005;
+#  set $upstream_millegrilles_private_apps_ws https://[**DEV SERVER**]:3005;
 #  proxy_pass $upstream_millegrilles_private_apps_ws;
 #  include /etc/nginx/conf.d/component_base.include;
 #}}
