@@ -1,14 +1,14 @@
 {
   "nom": "private_apps",
-  "version": "2024.6.12",
+  "version": "2024.6.14",
   "securite": "2.prive",
   "dependances": [
     {
       "name": "private_apps",
       "archives": [
         {
-          "src": "https://docker.maple.maceroc.com/archives/apps/millegrilles_private_apps_react.2024.6.10.tar.gz",
-          "digest": "4OQCIIP3QCse+D9EujVbvx+xiqIlQnK0kNTCuMpIAUjmyK7p",
+          "src": "https://docker.maple.maceroc.com/archives/apps/millegrilles_private_apps_react.2024.6.13.tar.gz",
+          "digest": "4OQCIPlebx/g7VVUcX10+oT4TeyFP2XxvXIcx2QGPENa+H1y",
           "location": "nginx:html/applications/apps"
         }
       ]
@@ -24,17 +24,28 @@
       {
         "labels": {
           "fr": {"name": "Conversation IA", "description": "Converser avec un chatbot d'intelligence artificielle."},
-          "en": {"name": "AI chatbot", "description": "Discussion with an artificial intelligence chat bot."}
+          "en": {"name": "AI chatbot", "description": "Discussion with an artificial intelligence chatbot."}
         },
         "url": "https://${HOSTNAME}/apps/aichat",
-        "securite": "2.prive"
+        "securite": "2.prive",
+        "required_domains": ["ollama_relai"]
+      },
+      {
+        "labels": {
+          "fr": {"name": "Notepad", "description": "Gestionnaire de documents chiffrés et mots de passe."},
+          "en": {"name": "Notepad", "description": "Encrypted documents and password manager."}
+        },
+        "url": "https://${HOSTNAME}/apps/notepad",
+        "securite": "2.prive",
+        "required_domains": ["Documents"]
       },{
         "labels": {
           "fr": {"name": "Senseurs Passifs", "description": "Gestion d'appareils."},
           "en": {"name": "Sensors and devices", "description": "Device management."}
         },
         "url": "https://${HOSTNAME}/apps/senseurspassifs",
-        "securite": "2.prive"
+        "securite": "2.prive",
+        "required_domains": ["SenseursPassifs"]
       }
     ]
   }
