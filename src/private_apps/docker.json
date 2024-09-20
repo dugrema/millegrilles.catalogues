@@ -7,8 +7,8 @@
       "name": "private_apps",
       "archives": [
         {
-          "src": "https://docker.maple.maceroc.com/archives/apps/millegrilles_private_apps_react.2024.7.29.tar.gz",
-          "digest": "4OQCIKw+ilfSOhiXKn/wMTTVSv38S1KcWTR3j5EYpY9jrPr6",
+          "src": "https://docker.maple.maceroc.com/archives/apps/millegrilles_private_apps_react.2024.7.30.tar.gz",
+          "digest": "4OQCID16mDFKX7rbZ76k1U4AAp8FikYYY1j5KU1UhgDEf4Z+",
           "location": "nginx:html/applications/apps"
         }
       ]
