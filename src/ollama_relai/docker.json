@@ -1,6 +1,6 @@
 {
   "nom": "ollama_relai",
-  "version": "2024.7.2",
+  "version": "2024.7.3",
   "securite": "3.protege",
   "dependances": [
     {
@@ -24,7 +24,7 @@
       },
       "configs": [
         {
-          "name": "pki.ollama",
+          "name": "pki.ollama_relai",
           "current": "cert",
           "filename": "/run/secrets/cert.pem"
         },
@@ -35,7 +35,7 @@
       ],
       "secrets": [
         {
-          "name": "pki.ollama",
+          "name": "pki.ollama_relai",
           "current": "key",
           "filename": "key.pem"
         },
