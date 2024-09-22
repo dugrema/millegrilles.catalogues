@@ -1,6 +1,6 @@
 {
   "nom": "core",
-  "version": "2024.7.0",
+  "version": "2024.7.1",
   "securite": "4.secure",
   "dependances": [
     {
@@ -35,6 +35,9 @@
       "constraints": [
         "node.labels.millegrilles.core == true",
         "node.labels.millegrilles.database == true"
+      ],
+      "mounts": [
+        {"source": "/var/opt/millegrilles/configuration", "target": "/var/opt/millegrilles/configuration", "type": "bind", "read_only": true}
       ],
       "configs": [
         {
