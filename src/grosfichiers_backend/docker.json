@@ -1,11 +1,11 @@
 {
   "nom": "grosfichiers_backend",
-  "version": "2024.5.2",
+  "version": "2024.7.0",
   "securite": "3.protege",
   "dependances": [
     {
       "name": "grosfichiers_backend",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_grosfichiers:2024.5.37",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_grosfichiers:2024.7.41",
       "certificat": {
         "roles": ["grosfichiers"],
         "domaines": ["GrosFichiers"],
@@ -22,6 +22,7 @@
         "MG_REDIS_URL": "rediss://client_rust@redis:6379#insecure"
       },
       "constraints": ["node.labels.millegrilles.grosfichiers == true"],
+      "mounts": [{"source": "millegrilles-domain-archives", "target": "/var/opt/millegrilles/archives", "type": "volume"}],
       "configs": [
         {
           "name": "pki.grosfichiers_backend",
