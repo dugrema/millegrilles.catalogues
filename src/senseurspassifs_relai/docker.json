@@ -1,6 +1,6 @@
 {
   "nom": "senseurspassifs_relai",
-  "version": "2024.7.2",
+  "version": "2024.7.3",
   "description": {
     "en": "Senseurs Passifs Relay (web)",
     "fr": "Senseurs Passifs Relai (web)"
@@ -22,8 +22,8 @@
         "CERT_PEM": "/run/secrets/cert.pem",
         "KEY_PEM": "/run/secrets/key.pem",
         "CA_PEM": "/run/secrets/millegrille.cert.pem",
-        "WEB_PORT": 1443,
-        "WEBSOCKET_PORT": 1444,
+        "WEB_PORT": "1443",
+        "WEBSOCKET_PORT": "1444",
         "MG_REDIS_HOST": "redis",
         "MG_REDIS_PORT": "6379"
       },
