@@ -27,7 +27,7 @@ location /coupdoeil2 {{
   root /usr/share/nginx/html/applications;
   add_header 'Cache-Control' 'public,max-age=300';
   include /etc/nginx/conf.d/component_gzip.include;
-  try_files $uri $uri/ /apps/index.html;
+  try_files $uri $uri/ /coupdoeil2/index.html;
 
 # DEV : Retirer root, include et add_header Cache-Control et utiliser les lignes suivantes. Remplacer [**DEV SERVER**] par le hostname dev.
 # set $upstream_millegrilles_protected_apps https://[**DEV SERVER**]:3006;
