@@ -1,6 +1,6 @@
 {
   "nom": "mongoexpress",
-  "version": "2024.6.0",
+  "version": "2024.7.0",
   "securite": "3.protege",
   "dependances": [
     {
@@ -92,7 +92,7 @@
   ],
   "nginx": {
     "conf": ["mongoexpress.server"],
-    "ports": [1443, 1444]
+    "ports": [1444]
   },
   "web": {
     "links": [{

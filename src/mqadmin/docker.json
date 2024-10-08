@@ -1,0 +1,27 @@
+{
+  "nom": "mqadmin",
+  "version": "2024.7.2",
+  "securite": "3.protege",
+  "nginx": {
+    "conf": ["mqadmin.server"],
+    "ports": [1443]
+  },
+  "web": {
+    "links": [
+      {
+        "labels": {
+          "fr": {
+            "name": "Rabbit MQ",
+            "description": "Administration du bus de MilleGrilles."
+          },
+          "en": {
+            "name": "Rabbit MQ",
+            "description": "MilleGrilles system bus management."
+          }
+        },
+        "url": "https://${HOSTNAME}:1444",
+        "securite": "3.protege"
+      }
+    ]
+  }
+}
