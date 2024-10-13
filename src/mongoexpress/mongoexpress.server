@@ -1,6 +1,6 @@
 # HTTPS server
 # Serveur https par defaut
-resolver 127.0.0.11;
+#resolver 127.0.0.11;
 
 server {{
     listen 1444 ssl http2;
