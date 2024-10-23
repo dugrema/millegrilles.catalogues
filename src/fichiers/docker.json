@@ -1,11 +1,11 @@
 {
   "nom": "fichiers",
-  "version": "2024.7.7",
+  "version": "2024.7.8",
   "securite": "2.prive",
   "dependances": [
     {
       "name": "fichiers",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_midcompte_python:2024.7.71",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_midcompte_python:2024.7.72",
       "args": ["-m", "millegrilles_fichiers"],
       "certificat": {
         "roles": ["fichiers"],
