@@ -1,11 +1,12 @@
 {
   "nom": "documents_backend",
-  "version": "2024.7.4",
+  "version": "2024.7.5",
   "description": {
     "en": "Documents (back-end)",
     "fr": "Documents (back-end)"
   },
   "securite": "3.protege",
+  "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
     {
       "name": "documents_backend",

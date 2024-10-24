@@ -1,11 +1,12 @@
 {
   "nom": "ai_backend",
-  "version": "2024.7.10",
+  "version": "2024.7.11",
   "description": {
     "en": "AI large language model support (back-end)",
     "fr": "IA support pour modeles de language (back-end)"
   },
   "securite": "3.protege",
+  "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
     {
       "name": "ai_backend",

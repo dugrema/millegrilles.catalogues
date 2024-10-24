@@ -1,11 +1,12 @@
 {
   "nom": "senseurspassifs_backend",
-  "version": "2024.7.8",
+  "version": "2024.7.9",
   "description": {
     "en": "Senseurs Passifs (back-end)",
     "fr": "Senseurs Passifs (back-end)"
   },
   "securite": "3.protege",
+  "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
     {
       "name": "senseurspassifs_backend",

@@ -1,7 +1,8 @@
 {
   "nom": "grosfichiers_backend",
-  "version": "2024.7.3",
+  "version": "2024.7.4",
   "securite": "3.protege",
+  "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
     {
       "name": "grosfichiers_backend",

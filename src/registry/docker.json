@@ -1,7 +1,8 @@
 {
   "nom": "docker-registry",
-  "version": "2023.9.3",
+  "version": "2024.7.0",
   "securite": "2.prive",
+  "securityLevels": ["2.prive", "3.protege"],
   "dependances": [
     {
       "name": "docker-registry",

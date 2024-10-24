@@ -1,7 +1,8 @@
 {
   "nom": "private_apps",
-  "version": "2024.7.7",
+  "version": "2024.7.8",
   "securite": "2.prive",
+  "securityLevels": ["2.prive", "3.protege"],
   "dependances": [
     {
       "name": "private_apps",

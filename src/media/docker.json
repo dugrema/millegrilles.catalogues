@@ -1,7 +1,8 @@
 {
   "nom": "media",
-  "version": "2024.4.1",
+  "version": "2024.7.0",
   "securite": "3.protege",
+  "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
     {
       "name": "media",

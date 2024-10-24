@@ -1,7 +1,8 @@
 {
   "nom": "maitredescles_partition",
-  "version": "2024.7.4",
+  "version": "2024.7.5",
   "securite": "3.protege",
+  "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
     {
       "name": "maitredescles_partition",

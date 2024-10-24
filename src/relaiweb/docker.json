@@ -1,11 +1,12 @@
 {
   "nom": "relaiweb",
-  "version": "2024.4.1",
+  "version": "2024.7.0",
   "description": {
     "en": "Web relay for commands",
     "fr": "Relai web pour commandes"
   },
   "securite": "1.public",
+  "securityLevels": ["1.public", "2.prive", "3.protege"],
   "dependances": [
     {
       "name": "relaiweb",

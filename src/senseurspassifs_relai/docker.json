@@ -1,11 +1,12 @@
 {
   "nom": "senseurspassifs_relai",
-  "version": "2024.7.3",
+  "version": "2024.7.4",
   "description": {
     "en": "Senseurs Passifs Relay (web)",
     "fr": "Senseurs Passifs Relai (web)"
   },
   "securite": "2.prive",
+  "securityLevels": ["2.prive", "3.protege"],
   "dependances": [
     {
       "name": "senseurspassifs_relai",
