@@ -1,12 +1,12 @@
 {
   "nom": "ollama",
-  "version": "2024.7.2",
+  "version": "2024.8.0",
   "securite": "3.protege",
   "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
     {
       "name": "ollama",
-      "image": "ollama/ollama:0.3.4",
+      "image": "ollama/ollama:0.3.14",
       "constraints": ["node.labels.millegrilles.ollama == true"],
       "mounts": [
         {"source": "ollama-models", "target":  "/root/.ollama", "type": "volume"}
@@ -14,10 +14,6 @@
       "networks": [
         {"target": "millegrille_net", "aliases": ["ollama"]}
       ],
-      "resources": {
-        "cpu_limit": 7000000000,
-        "mem_limit": 9500000000
-      },
       "restart_policy": {
         "condition": "on-failure",
         "delay": 60000000000,
@@ -30,8 +26,8 @@
     },
     {
       "name": "ollama_relai",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_ollama_relai_python:2024.7.5",
-      "args": ["-m", "millegrilles_ollama_relai", "--verbose"],
+      "image": "docker.maple.maceroc.com:5000/millegrilles_ollama_relai_python:2024.8.7",
+      "args": ["-m", "millegrilles_ollama_relai"],
      "certificat": {
         "roles": ["ollama_relai"],
         "domaines": ["ollama_relai"],
