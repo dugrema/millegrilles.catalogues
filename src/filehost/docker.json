@@ -1,6 +1,6 @@
 {
   "nom": "filehost",
-  "version": "2024.8.4",
+  "version": "2024.8.5",
   "securite": "1.public",
   "securityLevels": ["1.public", "2.prive", "3.protege"],
   "dependances": [
@@ -58,5 +58,5 @@
       }
     }
   ],
-  "nginx": {"conf": ["filehost.location", "filehost.proxypass"]}
+  "nginx": {"conf": ["filehost.location", "filehost.location.tls", "filehost.proxypass"]}
 }
