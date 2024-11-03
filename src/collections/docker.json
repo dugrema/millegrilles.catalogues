@@ -1,6 +1,6 @@
 {
   "nom": "collections",
-  "version": "2024.8.1",
+  "version": "2024.8.2",
   "securite": "2.prive",
   "securityLevels": ["2.prive", "3.protege"],
   "dependances": [
