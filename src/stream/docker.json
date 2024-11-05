@@ -1,6 +1,6 @@
 {
   "nom": "stream",
-  "version": "2024.8.4",
+  "version": "2024.8.5",
   "securite": "2.prive",
   "securityLevels": ["2.prive", "3.protege"],
   "dependances": [
