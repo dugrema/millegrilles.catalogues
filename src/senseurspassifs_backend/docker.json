@@ -1,6 +1,6 @@
 {
   "nom": "senseurspassifs_backend",
-  "version": "2024.7.9",
+  "version": "2024.8.1",
   "description": {
     "en": "Senseurs Passifs (back-end)",
     "fr": "Senseurs Passifs (back-end)"
@@ -10,7 +10,7 @@
   "dependances": [
     {
       "name": "senseurspassifs_backend",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_senseurspassifs:2024.7.36",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_senseurspassifs:2024.8.37",
       "certificat": {
         "roles": ["senseurspassifs"],
         "domaines": ["SenseursPassifs"],
