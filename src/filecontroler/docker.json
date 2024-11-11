@@ -1,12 +1,12 @@
 {
   "nom": "filecontroler",
-  "version": "2024.8.9",
+  "version": "2024.8.10",
   "securite": "1.public",
   "securityLevels": ["1.public", "2.prive", "3.protege"],
   "dependances": [
     {
       "name": "filecontroler",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_filecontroler_python:2024.8.9",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_filecontroler_python:2024.8.15",
       "args": ["-m", "millegrilles_filecontroler"],
       "certificat": {
         "roles": ["filecontroler"],
