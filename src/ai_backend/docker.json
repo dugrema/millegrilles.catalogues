@@ -1,6 +1,6 @@
 {
   "nom": "ai_backend",
-  "version": "2024.8.1",
+  "version": "2024.8.2",
   "description": {
     "en": "AI large language model support (back-end)",
     "fr": "IA support pour modeles de language (back-end)"
@@ -10,7 +10,7 @@
   "dependances": [
     {
       "name": "ai_backend",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_ai:2024.8.22",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_ai:2024.8.23",
       "certificat": {
         "roles": ["ai", "llm"],
         "domaines": ["AiLanguage"],
