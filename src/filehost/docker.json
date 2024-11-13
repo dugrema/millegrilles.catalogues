@@ -1,12 +1,12 @@
 {
   "nom": "filehost",
-  "version": "2024.8.11",
+  "version": "2024.8.12",
   "securite": "1.public",
   "securityLevels": ["1.public", "2.prive", "3.protege"],
   "dependances": [
     {
       "name": "filehost",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_filehost_python:2024.8.13",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_filehost_python:2024.8.14",
       "args": ["-m", "millegrilles_filehost"],
       "certificat": {
         "roles": ["filehost"],
