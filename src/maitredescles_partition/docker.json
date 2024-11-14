@@ -1,12 +1,12 @@
 {
   "nom": "maitredescles_partition",
-  "version": "2024.8.2",
+  "version": "2024.8.3",
   "securite": "3.protege",
   "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
     {
       "name": "maitredescles_partition",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_maitredescles:2024.8.42",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_maitredescles:2024.8.43",
       "certificat": {
         "roles": ["maitredescles"],
         "domaines": ["MaitreDesCles"],
