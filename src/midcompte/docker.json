@@ -1,11 +1,11 @@
 {
   "nom": "midcompte",
-  "version": "2024.7.1",
+  "version": "2024.9.1",
   "securite": "4.secure",
   "dependances": [
     {
       "name": "midcompte",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_midcompte_python:2024.7.71",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_midcompte_python:2024.9.84",
       "certificat": {
         "roles": [
           "midcompte"
@@ -47,11 +47,6 @@
           "name": "passwd.mongo",
           "current": "password",
           "filename": "passwd.mongo.txt"
-        },
-        {
-          "name": "passwd.mqadmin",
-          "current": "password",
-          "filename": "passwd.mqadmin.txt"
         }
       ],
       "endpoint_spec": {
