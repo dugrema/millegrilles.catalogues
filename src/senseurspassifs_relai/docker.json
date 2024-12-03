@@ -1,6 +1,6 @@
 {
   "nom": "senseurspassifs_relai",
-  "version": "2024.9.4",
+  "version": "2024.9.7",
   "description": {
     "en": "Senseurs Passifs Relay (web)",
     "fr": "Senseurs Passifs Relai (web)"
@@ -84,5 +84,12 @@
   ],
   "nginx": {
     "conf": ["senseurspassifs_relai.app.location"]
+  },
+  "web": {
+    "links": [{
+        "url": "https://${HOSTNAME}/senseurspassifs_relai",
+        "securite": "2.prive",
+        "users": false
+    }]
   }
 }
