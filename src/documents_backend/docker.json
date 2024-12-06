@@ -1,6 +1,6 @@
 {
   "nom": "documents_backend",
-  "version": "2024.8.3",
+  "version": "2024.9.1",
   "description": {
     "en": "Documents (back-end)",
     "fr": "Documents (back-end)"
@@ -10,7 +10,7 @@
   "dependances": [
     {
       "name": "documents_backend",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_documents:2024.8.26",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_documents:2024.9.27",
       "certificat": {
         "roles": ["documents_backend"],
         "domaines": ["Documents"],

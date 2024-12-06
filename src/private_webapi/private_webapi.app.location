@@ -22,6 +22,12 @@ location /millegrilles/socket.io {{
   proxy_set_header  X-User-Id                $auth_x_user_id;
   proxy_set_header  X-Auth                   $auth_x_auth;
 
+  proxy_ssl_certificate         /run/secrets/nginx.cert.pem;
+  proxy_ssl_certificate_key     /run/secrets/nginx.key.pem;
+  proxy_ssl_trusted_certificate /run/secrets/millegrille.cert.pem;
+  proxy_ssl_verify       on;
+  proxy_ssl_verify_depth 1;
+
   # socket.io est public, c'est la methode d'authentification
   include /etc/nginx/conf.d/component_base.include;
 }}
