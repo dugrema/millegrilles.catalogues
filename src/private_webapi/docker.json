@@ -1,11 +1,11 @@
 {
   "nom": "private_webapi",
-  "version": "2024.9.2",
+  "version": "2024.9.3",
   "securite": "2.prive",
   "dependances": [
     {
       "name": "private_webapi",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_web_python:2024.9.48",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_web_python:2024.9.49",
       "args": [
         "-m",
         "millegrilles_web"
