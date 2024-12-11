@@ -1,6 +1,6 @@
 {
   "nom": "mqadmin",
-  "version": "2024.7.3",
+  "version": "2024.9.1",
   "securite": "3.protege",
   "nginx": {
     "conf": ["mqadmin.server"],
