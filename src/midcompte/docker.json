@@ -1,11 +1,11 @@
 {
   "nom": "midcompte",
-  "version": "2024.9.1",
+  "version": "2024.9.2",
   "securite": "4.secure",
   "dependances": [
     {
       "name": "midcompte",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_midcompte_python:2024.9.84",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_midcompte_python:2024.9.92",
       "certificat": {
         "roles": [
           "midcompte"
