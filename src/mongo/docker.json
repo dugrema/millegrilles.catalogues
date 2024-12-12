@@ -1,6 +1,6 @@
 {
   "nom": "mongo",
-  "version": "2024.2.0",
+  "version": "2024.9.1",
   "securite": "4.secure",
   "dependances": [
     {
@@ -23,6 +23,11 @@
       "passwords": [
         "mongo"
       ],
+      "container_init": {
+        "args": ["mongod", "--replSet", "rs0"],
+        "env": {"MONGO_INITDB_ROOT_USERNAME": "admin", "MONGO_INITDB_ROOT_PASSWORD": "${SECRETS/passwd.mongo.txt}"},
+        "mounts": [{"source": "mongo-data", "target": "/data/db", "type": "volume"}]
+      },
       "args": [
         "mongod",
         "--tlsMode",
