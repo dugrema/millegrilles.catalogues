@@ -1,6 +1,6 @@
 {
   "nom": "mongo",
-  "version": "2024.9.1",
+  "version": "2024.9.2",
   "securite": "4.secure",
   "dependances": [
     {
@@ -30,12 +30,12 @@
       },
       "args": [
         "mongod",
-        "--tlsMode",
-        "requireTLS",
-        "--tlsCertificateKeyFile",
-        "/run/secrets/mongo.key_cert.pem",
-        "--tlsCAFile",
-        "/run/secrets/millegrille.cert.pem"
+        "--tlsMode", "requireTLS",
+        "--tlsCertificateKeyFile", "/run/secrets/mongo.key_cert.pem",
+        "--tlsCAFile", "/run/secrets/millegrille.cert.pem",
+        "--replSet", "rs0",
+        "--clusterAuthMode", "x509",
+        "--tlsClusterFile", "/run/secrets/mongo.key_cert.pem"
       ],
       "env": {
         "MONGO_INITDB_ROOT_USERNAME": "admin",
