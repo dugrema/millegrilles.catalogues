@@ -1,6 +1,6 @@
 {
   "nom": "senseurspassifs_relai",
-  "version": "2024.9.7",
+  "version": "2024.9.18",
   "description": {
     "en": "Senseurs Passifs Relay (web)",
     "fr": "Senseurs Passifs Relai (web)"
@@ -10,7 +10,7 @@
   "dependances": [
     {
       "name": "senseurspassifs_relai",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_senseurspassifs_python:2024.9.17",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_senseurspassifs_python:2024.9.18",
       "args": ["-m", "senseurspassifs_relai_web"],
      "certificat": {
         "roles": ["senseurspassifs_relai"],
