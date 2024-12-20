@@ -1,11 +1,11 @@
 {
   "nom": "ceduleur",
-  "version": "2024.4.1",
+  "version": "2024.9.1",
   "securite": "4.secure",
   "dependances": [
     {
       "name": "ceduleur",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_midcompte_python:2024.4.45",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_midcompte_python:2024.9.93",
       "args": ["-m", "millegrilles_ceduleur"],
       "certificat": {
         "roles": ["ceduleur"],
