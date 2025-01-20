@@ -1,6 +1,6 @@
 {
   "nom": "filehost",
-  "version": "2024.9.2",
+  "version": "2025.1.1",
   "securite": "1.public",
   "securityLevels": ["1.public", "2.prive", "3.protege"],
   "dependances": [
