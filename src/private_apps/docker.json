@@ -1,6 +1,6 @@
 {
   "nom": "private_apps",
-  "version": "2025.1.67",
+  "version": "2025.1.68",
   "securite": "2.prive",
   "securityLevels": ["2.prive", "3.protege"],
   "dependances": [
@@ -8,8 +8,8 @@
       "name": "private_apps",
       "archives": [
         {
-          "src": "https://docker.maple.maceroc.com/archives/apps/millegrilles_private_apps_react.2025.1.67.tar.gz",
-          "digest": "4OQCII0NQbEbEuD7Vs2/XJr5HEViZaoNfqiOY4+YuO7U6L19",
+          "src": "https://docker.maple.maceroc.com/archives/apps/millegrilles_private_apps_react.2025.1.68.tar.gz",
+          "digest": "4OQCIG1f1vhfcM81EOfOE0KddfDSdFQcIet8Yiq7xXSSrKF4",
           "location": "nginx:html/applications/apps"
         }
       ]
@@ -29,7 +29,7 @@
         },
         "url": "https://${HOSTNAME}/apps/aichat",
         "securite": "2.prive",
-        "required_domains": ["ollama_relai"]
+        "required_domains": ["ollama_relai", "MaitreDesCles"]
       },
       {
         "labels": {
@@ -38,15 +38,25 @@
         },
         "url": "https://${HOSTNAME}/apps/notepad",
         "securite": "2.prive",
-        "required_domains": ["Documents"]
-      },{
+        "required_domains": ["Documents", "MaitreDesCles"]
+      },
+      {
         "labels": {
           "fr": {"name": "Senseurs Passifs", "description": "Gestion d'appareils."},
           "en": {"name": "Sensors and devices", "description": "Device management."}
         },
         "url": "https://${HOSTNAME}/apps/senseurspassifs",
         "securite": "2.prive",
-        "required_domains": ["SenseursPassifs"]
+        "required_domains": ["SenseursPassifs", "MaitreDesCles"]
+      },
+      {
+        "labels": {
+          "fr": {"name": "Collections 2", "description": "Gestionnaire de fichiers"},
+          "en": {"name": "Collections 2", "description": "File manager."}
+        },
+        "url": "https://${HOSTNAME}/apps/collections2",
+        "securite": "2.prive",
+        "required_domains": ["GrosFichiers", "MaitreDesCles"]
       }
     ]
   }
