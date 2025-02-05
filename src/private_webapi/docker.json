@@ -1,6 +1,6 @@
 {
   "nom": "private_webapi",
-  "version": "2025.1.19",
+  "version": "2025.1.33",
   "securite": "2.prive",
   "dependances": [
     {
@@ -12,8 +12,8 @@
       ],
       "archives": [
         {
-          "src": "https://docker.maple.maceroc.com/archives/authentication/millegrilles_authentication_typescript.2025.1.19.tar.gz",
-          "digest": "4OQCIBeXnRwxKwwQwOD3dsgCW+pp/mF2kQIKz7439XuopsGa",
+          "src": "https://docker.maple.maceroc.com/archives/authentication/millegrilles_authentication_typescript.2025.1.33.tar.gz",
+          "digest": "4OQCIISBfNtzgJZffnvCP/ExON8E7v+/vfRiVOHH/oONo8Dm",
           "location": "nginx:html/applications/millegrilles"
         }
       ],
