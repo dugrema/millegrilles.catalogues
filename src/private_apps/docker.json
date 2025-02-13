@@ -1,6 +1,6 @@
 {
   "nom": "private_apps",
-  "version": "2025.1.82",
+  "version": "2025.1.83",
   "securite": "2.prive",
   "securityLevels": ["2.prive", "3.protege"],
   "dependances": [
@@ -8,8 +8,8 @@
       "name": "private_apps",
       "archives": [
         {
-          "src": "https://docker.maple.maceroc.com/archives/apps/millegrilles_private_apps_react.2025.1.82.tar.gz",
-          "digest": "4OQCIA+hyOwDqj3VWKxxa5bCkNFG0xeKS3mIuUI1eooeM1kk",
+          "src": "https://docker.maple.maceroc.com/archives/apps/millegrilles_private_apps_react.2025.1.83.tar.gz",
+          "digest": "4OQCIFRaYyGD2ezPYQ3JFtEc12Ri+K9AaxEQu9+Nzxxf2FEX",
           "location": "nginx:html/applications/apps"
         }
       ]
