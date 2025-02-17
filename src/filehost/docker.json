@@ -6,7 +6,7 @@
   "dependances": [
     {
       "name": "filehost",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_filehost_python:2025.1.31",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_filehost_python:2025.2.31",
       "args": ["-m", "millegrilles_filehost"],
       "certificat": {
         "roles": ["filehost"],
