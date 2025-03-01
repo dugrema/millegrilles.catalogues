@@ -1,0 +1,66 @@
+{
+  "nom": "data_collector",
+  "version": "2025.2.0",
+  "securite": "3.protege",
+  "securityLevels": ["3.protege", "4.secure"],
+  "dependances": [
+    {
+      "name": "data_collector",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_datacollector:2025.2.1",
+      "certificat": {
+        "roles": ["data_collector"],
+        "domaines": ["DataCollector"],
+        "exchanges": ["4.secure", "3.protege", "2.prive", "1.public"]
+      },
+      "env": {
+        "MG_MQ_HOST": "${MQ_HOSTNAME}",
+        "MG_MQ_PORT": "${MQ_PORT}",
+        "CERTFILE": "/run/secrets/cert.pem",
+        "KEYFILE": "/run/secrets/key.pem",
+        "CAFILE": "/run/secrets/millegrille.cert.pem",
+        "MG_MONGO_HOST": "mongo",
+        "RUST_LOG": "warn,millegrilles_datacollector=info",
+        "MG_REDIS_URL": "rediss://client_rust@redis:6379#insecure"
+      },
+      "constraints": ["node.labels.millegrilles.datacollector == true"],
+      "mounts": [{"source": "millegrilles-domain-archives", "target": "/var/opt/millegrilles/archives", "type": "volume"}],
+      "configs": [
+        {
+          "name": "pki.data_collector",
+          "current": "cert",
+          "filename": "/run/secrets/cert.pem"
+        },
+        {
+          "name": "pki.millegrille",
+          "filename": "/run/secrets/millegrille.cert.pem"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "pki.data_collector",
+          "current": "key",
+          "filename": "key.pem"
+        },
+        {
+          "name": "passwd.redis",
+          "current": "password",
+          "filename": "passwd.redis.txt"
+        }
+      ],
+      "networks": [{"target": "millegrille_net"}],
+      "resources": {
+        "cpu_limit": 1000000000,
+        "mem_limit": 250000000
+      },
+      "restart_policy": {
+        "condition": "on-failure",
+        "delay": 60000000000,
+        "max_attempts": 5
+      },
+      "mode": {
+        "mode": "replicated",
+        "replicas": 1
+      }
+    }
+  ]
+}
