@@ -1,0 +1,36 @@
+{
+  "nom": "data_viewer",
+  "version": "2025.2.2",
+  "securite": "1.public",
+  "securityLevels": ["1.public", "2.prive", "3.protege"],
+  "dependances": [
+    {
+      "name": "data_viewer",
+      "archives": [
+        {
+          "src": "https://docker.maple.maceroc.com/archives/apps/millegrilles_dataviewer_reactts.2025.2.8.tar.gz",
+          "digest": "4OQCIIq1nARuIGEpwbVl/S1vhc4zkP9yC6nak4Y0uLCecNlu",
+          "location": "nginx:html/applications/dataviewer"
+        }
+      ]
+    }
+  ],
+  "nginx": {
+    "conf": [
+      "data_viewer.location"
+    ]
+  },
+  "web": {
+    "links": [
+      {
+        "labels": {
+          "fr": {"name": "Data Viewer", "description": "Visualiser des données."},
+          "en": {"name": "Data Viewer", "description": "Time series data viewer"}
+        },
+        "url": "https://${HOSTNAME}/dataviewer",
+        "securite": "1.public",
+        "required_domains": ["MaitreDesCles"]
+      }
+    ]
+  }
+}

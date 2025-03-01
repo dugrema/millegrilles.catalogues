@@ -1,0 +1,39 @@
+# Application React data viewer
+
+# https://gkedge.gitbooks.io/react-router-in-the-real/content/nginx.html
+
+# --- START REMOVE FOR DEV ---
+# Code resources with hash in name
+location /dataviewer/assets/ {{
+  root /usr/share/nginx/html/applications;
+  try_files $uri =404;
+  expires 1y;
+  access_log off;
+  add_header Cache-Control "public, immutable";
+  include /etc/nginx/conf.d/component_gzip.include;
+}}
+
+# Image resources
+location ~/dataviewer/.*\.(?:png|svg)$ {{
+  root /usr/share/nginx/html/applications;
+  try_files $uri =404;
+  expires 15m;
+  access_log off;
+  add_header Cache-Control "public";
+}}
+# --- END REMOVE FOR DEV ---
+
+location /dataviewer {{
+  root /usr/share/nginx/html/applications;
+  add_header 'Cache-Control' 'public,max-age=300';
+  include /etc/nginx/conf.d/component_gzip.include;
+  try_files $uri $uri/ /dataviewer/index.html;
+}}
+
+# DEV : Retirer tous les location precendents et retirer commentaires du block suivant.
+# Changer docker:5173 au besoin en fonction de votre connection de developpement.
+# location /dataviewer {{
+#   set $upstream_millegrilles_dataviewer https://docker:5173;
+#   proxy_pass $upstream_millegrilles_dataviewer;
+#   include /etc/nginx/conf.d/component_base.include;
+# }}
