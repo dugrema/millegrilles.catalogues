@@ -1,12 +1,12 @@
 {
   "nom": "data_collector",
-  "version": "2025.2.0",
+  "version": "2025.2.3",
   "securite": "3.protege",
   "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
     {
       "name": "data_collector",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_datacollector:2025.2.1",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_datacollector:2025.2.3",
       "certificat": {
         "roles": ["data_collector"],
         "domaines": ["DataCollector"],
