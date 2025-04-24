@@ -1,6 +1,6 @@
 {
   "nom": "core",
-  "version": "2025.2.104",
+  "version": "2025.2.105",
   "securite": "4.secure",
   "dependances": [
     {
