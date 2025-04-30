@@ -1,0 +1,22 @@
+# HTTPS server for ollama on port 1445
+server {{
+    listen 1445 ssl;
+    listen [::]:1445 ssl ipv6only=on;
+    http2 on;
+
+    # Inclure les conf TLS
+    include /etc/nginx/conf.d/modules/*.conf.tls;
+
+    # Verifier qu'on a un certificat TLS client systeme valide
+    include /etc/nginx/conf.d/modules/webauth.location.tls;
+    include /etc/nginx/conf.d/auth_tlsclient.include;
+
+    location /api {{
+        set $upstream_ollama http://ollama:11434;
+        proxy_pass $upstream_ollama;
+
+        # Desactiver buffering de transfert
+        proxy_buffering off;  # Desactiver buffering de la reponse (download streaming)
+    }}
+
+}}
