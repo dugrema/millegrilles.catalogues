@@ -1,18 +1,25 @@
 {
   "nom": "ollama_relai",
-  "version": "2025.3.14",
+  "version": "2025.3.17",
   "securite": "3.protege",
   "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
     {
       "name": "ollama_relai",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_ollama_relai_python:2025.3.14",
-      "args": ["-m", "millegrilles_ollama_relai"],
-     "certificat": {
+      "image": "docker.maple.maceroc.com:5000/millegrilles_ollama_relai_python:2025.3.17",
+      "args": ["-m", "millegrilles_ollama_relai", "--rag"],
+      "certificat": {
         "roles": ["ollama_relai"],
         "domaines": ["ollama_relai"],
         "exchanges": ["3.protege", "2.prive", "1.public"]
       },
+      "mounts": [
+        {
+          "source": "ollama-rag",
+          "target": "/var/opt/millegrilles/rag",
+          "type": "volume"
+        }
+      ],
       "env": {
         "MQ_HOSTNAME": "${MQ_HOSTNAME}",
         "MQ_PORT": "${MQ_PORT}",
@@ -21,6 +28,7 @@
         "CA_PATH": "/run/secrets/millegrille.cert.pem",
         "MG_REDIS_HOST": "redis",
         "MG_REDIS_PORT": "6379",
+        "DIR_RAG": "/var/opt/millegrilles/rag",
         "OLLAMA_URL": "http://ollama:11434"
       },
       "configs": [
