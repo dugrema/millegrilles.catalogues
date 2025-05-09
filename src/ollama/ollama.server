@@ -15,8 +15,12 @@ server {{
         set $upstream_ollama http://ollama:11434;
         proxy_pass $upstream_ollama;
 
+        proxy_read_timeout 20s;
+        client_max_body_size 25m;
+
         # Desactiver buffering de transfert
         proxy_buffering off;  # Desactiver buffering de la reponse (download streaming)
+        proxy_request_buffering off;  # Desactiver buffering de la request (upload)
     }}
 
 }}

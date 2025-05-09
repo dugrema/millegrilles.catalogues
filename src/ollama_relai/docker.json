@@ -1,12 +1,12 @@
 {
   "nom": "ollama_relai",
-  "version": "2025.3.19",
+  "version": "2025.3.24",
   "securite": "3.protege",
   "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
     {
       "name": "ollama_relai",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_ollama_relai_python:2025.3.19",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_ollama_relai_python:2025.3.24",
       "args": ["-m", "millegrilles_ollama_relai", "--rag"],
       "certificat": {
         "roles": ["ollama_relai"],
@@ -60,8 +60,8 @@
         }
       ],
       "resources": {
-        "cpu_limit": 500000000,
-        "mem_limit": 150000000
+        "cpu_limit": 2000000000,
+        "mem_limit": 500000000
       },
       "restart_policy": {
         "condition": "on-failure",
