@@ -11,16 +11,48 @@ server {{
     include /etc/nginx/conf.d/modules/webauth.location.tls;
     include /etc/nginx/conf.d/auth_tlsclient.include;
 
-    location /api {{
+    location /api/embed {{
         set $upstream_ollama http://ollama:11434;
         proxy_pass $upstream_ollama;
+        proxy_read_timeout 10m;
 
-        proxy_read_timeout 20s;
         client_max_body_size 25m;
 
         # Desactiver buffering de transfert
         proxy_buffering off;  # Desactiver buffering de la reponse (download streaming)
         proxy_request_buffering off;  # Desactiver buffering de la request (upload)
+    }}
+
+    location /api/generate {{
+        set $upstream_ollama http://ollama:11434;
+        proxy_pass $upstream_ollama;
+        proxy_read_timeout 3m;
+
+        client_max_body_size 25m;
+
+        # Desactiver buffering de transfert
+        proxy_buffering off;  # Desactiver buffering de la reponse (download streaming)
+        proxy_request_buffering off;  # Desactiver buffering de la request (upload)
+    }}
+
+    location /api/chat {{
+        set $upstream_ollama http://ollama:11434;
+        proxy_pass $upstream_ollama;
+        proxy_read_timeout 45s;
+
+        client_max_body_size 25m;
+
+        # Desactiver buffering de transfert
+        proxy_buffering off;  # Desactiver buffering de la reponse (download streaming)
+        proxy_request_buffering off;  # Desactiver buffering de la request (upload)
+    }}
+
+    location /api {{
+        set $upstream_ollama http://ollama:11434;
+        proxy_pass $upstream_ollama;
+        proxy_read_timeout 20s;
+
+        client_max_body_size 64k;
     }}
 
 }}
