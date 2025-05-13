@@ -1,0 +1,71 @@
+{
+  "nom": "datasource_mapper",
+  "version": "2025.3.2",
+  "securite": "3.protege",
+  "securityLevels": ["3.protege","4.secure"],
+  "dependances": [
+    {
+      "name": "datasource_mapper",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_datasource_mapper_python:2025.3.2",
+      "args": ["-m", "millegrilles_datasource_mapper"],
+      "certificat": {
+        "roles": ["datasource_mapper"],
+        "exchanges": ["4.secure","3.protege","2.prive","1.public"]
+      },
+      "env": {
+        "MQ_HOSTNAME": "${MQ_HOSTNAME}",
+        "MQ_PORT": "${MQ_PORT}",
+        "REDIS_HOSTNAME": "redis",
+        "REDIS_PORT": "6379",
+        "REDIS_PASSWORD_PATH": "/run/secrets/passwd.redis.txt",
+        "CERT_PATH": "/run/secrets/cert.pem",
+        "KEY_PATH": "/run/secrets/key.pem",
+        "CA_PATH": "/run/secrets/millegrille.cert.pem"
+      },
+      "constraints": ["node.labels.millegrilles.datasource_mapper == true"],
+      "mounts": [
+        {"source": "millegrilles-datasource-mapper", "target": "/var/opt/millegrilles/datasource_mapper", "type": "volume"}
+      ],
+      "configs": [
+        {
+          "name": "pki.datasource_mapper",
+          "current": "cert",
+          "filename": "/run/secrets/cert.pem"
+        },
+        {
+          "name": "pki.millegrille",
+          "filename": "/run/secrets/millegrille.cert.pem"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "pki.datasource_mapper",
+          "current": "key",
+          "filename": "key.pem"
+        },
+        {
+          "name": "passwd.redis",
+          "current": "password",
+          "filename": "passwd.redis.txt"
+        }
+      ],
+      "networks": [
+        {"target": "millegrille_net"},
+        {"target": "bridge"}
+      ],
+      "resources": {
+        "cpu_limit": 1000000000,
+        "mem_limit": 200000000
+      },
+      "restart_policy": {
+        "condition": "on-failure",
+        "delay": 60000000000,
+        "max_attempts": 1000
+      },
+      "mode": {
+        "mode": "replicated",
+        "replicas": 1
+      }
+    }
+  ]
+}
