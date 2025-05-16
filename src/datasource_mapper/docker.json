@@ -1,13 +1,13 @@
 {
   "nom": "datasource_mapper",
-  "version": "2025.3.2",
+  "version": "2025.3.4",
   "securite": "3.protege",
   "securityLevels": ["3.protege","4.secure"],
   "dependances": [
     {
       "name": "datasource_mapper",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_datasource_mapper_python:2025.3.2",
-      "args": ["-m", "millegrilles_datasource_mapper"],
+      "image": "docker.maple.maceroc.com:5000/millegrilles_datasource_mapper_python:2025.3.4",
+      "args": ["-m", "millegrilles_datasourcemapper"],
       "certificat": {
         "roles": ["datasource_mapper"],
         "exchanges": ["4.secure","3.protege","2.prive","1.public"]
