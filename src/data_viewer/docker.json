@@ -1,6 +1,6 @@
 {
   "nom": "data_viewer",
-  "version": "2025.3.25",
+  "version": "2025.3.26",
   "securite": "1.public",
   "securityLevels": ["1.public", "2.prive", "3.protege"],
   "dependances": [
@@ -8,8 +8,8 @@
       "name": "data_viewer",
       "archives": [
         {
-          "src": "https://docker.maple.maceroc.com/archives/apps/millegrilles_dataviewer_reactts.2025.3.25.tar.gz",
-          "digest": "4OQCIKmn1fiD1ch3SFnurqA5B9G7V4PMATLz2YMpofHG5mwD",
+          "src": "https://docker.maple.maceroc.com/archives/apps/millegrilles_dataviewer_reactts.2025.3.26.tar.gz",
+          "digest": "4OQCIM5i6eLP6DAsMA8C5ayBJpKydWePLiX9Vqxz9lCfcM4+",
           "location": "nginx:html/applications/dataviewer"
         }
       ]
