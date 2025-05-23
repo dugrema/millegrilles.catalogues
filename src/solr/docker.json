@@ -1,6 +1,6 @@
 {
   "nom": "solr",
-  "version": "2024.9.6",
+  "version": "2025.3.11",
   "securite": "3.protege",
   "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
@@ -8,15 +8,6 @@
       "name": "solr_zookeeper",
       "image": "zookeeper:3.8",
       "hostname": "solrzookeeper",
-      "certificat": {
-        "nom": "solr_zookeeper",
-        "roles": ["solrzookeeper"],
-        "dns": {
-          "localhost": true,
-          "hostnames": ["solrzookeeper"],
-          "domain": true
-        }
-      },
       "mounts": [
         {
           "source": "solr-zookeeper-data",
@@ -30,24 +21,6 @@
       ],
       "constraints": [
         "node.labels.millegrilles.solr == true"
-      ],
-      "configs": [
-        {
-          "name": "pki.millegrille",
-          "filename": "/run/secrets/pki.millegrille.cert"
-        },
-        {
-          "name": "pki.solr_zookeeper",
-          "current": "cert",
-          "filename": "/run/secrets/cert.pem"
-        }
-      ],
-      "secrets": [
-        {
-          "name": "pki.solr_zookeeper",
-          "current": "key",
-          "filename": "key.pem"
-        }
       ],
       "networks": [
         {
@@ -74,8 +47,12 @@
     },
     {
       "name": "solr_server",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_solr:9.2.master.1",
+      "image": "solr:9.2",
       "hostname": "solr",
+      "args": ["solr-foreground", "-c", "-h", "solr", "-z", "solrzookeeper:2181"],
+      "env": {
+        "SOLR_MODULES": "extraction"
+      },
       "mounts": [
         {
           "source": "solr-data",
@@ -83,35 +60,8 @@
           "type": "volume"
         }
       ],
-      "certificat": {
-        "nom": "solr_server",
-        "roles": ["solr"],
-        "dns": {
-          "localhost": true,
-          "hostnames": ["solr"],
-          "domain": true
-        }
-      },
       "constraints": [
         "node.labels.millegrilles.solr == true"
-      ],
-      "configs": [
-        {
-          "name": "pki.millegrille",
-          "filename": "/run/secrets/pki.millegrille.cert"
-        },
-        {
-          "name": "pki.solr_server",
-          "current": "cert",
-          "filename": "/run/secrets/cert.pem"
-        }
-      ],
-      "secrets": [
-        {
-          "name": "pki.solr_server",
-          "current": "key",
-          "filename": "key.pem"
-        }
       ],
       "networks": [
         { "target": "millegrille_net", "aliases": ["solr"] }
@@ -135,7 +85,7 @@
     },
     {
       "name": "solr_relai",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_midcompte_python:2024.9.95",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_midcompte_python:2025.1.96",
       "args": ["-m", "millegrilles_solr"],
       "hostname": "solrrelai",
       "certificat": {
@@ -152,7 +102,7 @@
         "REDIS_HOSTNAME": "redis",
         "REDIS_PORT": "6379",
         "REDIS_PASSWORD_PATH": "/run/secrets/passwd.redis.txt",
-        "SOLR_URL": "https://solr:8983"
+        "SOLR_URL": "http://solr:8983"
       },
       "constraints": [
         "node.labels.millegrilles.solr == true"
