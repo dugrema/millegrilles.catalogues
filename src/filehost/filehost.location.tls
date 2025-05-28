@@ -3,7 +3,7 @@ location /filehost {{
   include /etc/nginx/conf.d/component_proxyheaders.include;
   include /etc/nginx/conf.d/auth_tlsclient.include;
 
-  proxy_read_timeout 60s;
+  proxy_read_timeout 3m;
   client_max_body_size 10g;
 
   # Desactiver buffering de transfert
