@@ -1,12 +1,12 @@
 {
   "nom": "ollama_relai",
-  "version": "2025.3.41",
+  "version": "2025.3.42",
   "securite": "3.protege",
   "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
     {
       "name": "ollama_relai",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_ollama_relai_python:2025.3.41",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_ollama_relai_python:2025.3.42",
       "args": ["-m", "millegrilles_ollama_relai", "--rag"],
       "certificat": {
         "roles": ["ollama_relai"],
