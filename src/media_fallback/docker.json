@@ -1,12 +1,12 @@
 {
   "nom": "media_fallback",
-  "version": "2025.3.28",
+  "version": "2025.3.29",
   "securite": "3.protege",
   "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
     {
       "name": "media_fallback",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_media_python:2025.3.28",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_media_python:2025.3.29",
       "args": ["-m", "millegrilles_media", "--fallback"],
       "certificat": {
         "roles": ["media"],
