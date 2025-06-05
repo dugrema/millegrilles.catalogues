@@ -1,7 +1,0 @@
-location /collections/socket.io {{
-  include /etc/nginx/conf.d/modules/collections.app.proxypass;
-#set $upstream_collections https://__SERVER__:4037;
-#proxy_pass $upstream_collections;
-  include /etc/nginx/conf.d/auth_tlsusager.include;
-  include /etc/nginx/conf.d/component_base.include;
-}}
