@@ -1,12 +1,12 @@
 {
   "nom": "media_novideo",
-  "version": "2025.4.30",
+  "version": "2025.4.31",
   "securite": "2.prive",
   "securityLevels": ["2.prive", "3.protege", "4.secure"],
   "dependances": [
     {
       "name": "media_novideo",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_media_python:2025.4.30",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_media_python:2025.4.31",
       "args": ["-m", "millegrilles_media", "--novideo"],
       "certificat": {
         "roles": ["media"],
