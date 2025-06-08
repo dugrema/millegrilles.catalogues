@@ -1,15 +1,15 @@
 {
   "nom": "media_1cpu",
-  "version": "2025.3.29",
-  "securite": "3.protege",
-  "securityLevels": ["3.protege", "4.secure"],
+  "version": "2025.4.30",
+  "securite": "2.prive",
+  "securityLevels": ["2.prive", "3.protege", "4.secure"],
   "dependances": [
     {
       "name": "media_1cpu",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_media_python:2025.3.29",
+      "image": "docker.maple.maceroc.com:5000/millegrilles_media_python:2025.4.30",
       "certificat": {
         "roles": ["media"],
-        "exchanges": ["4.secure", "3.protege", "2.prive", "1.public"]
+        "exchanges": ["2.prive", "1.public"]
       },
       "env": {
         "CA_PATH": "/run/secrets/millegrille.cert.pem",
