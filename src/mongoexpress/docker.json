@@ -1,35 +1,29 @@
 {
   "nom": "mongoexpress",
-  "version": "2024.7.3",
+  "version": "2025.4.4",
   "securite": "3.protege",
   "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
     {
       "name": "mongoexpress",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_mongoexpress:1.0.0-alpha.master.1",
+      "image": "registry.millegrilles.com/millegrilles/mongoexpress:1.0.2-20-alpine3.19.master.2",
       "certificat": {"roles": ["mongoexpress"], "dns": {"hostnames": ["mongoexpress"]}},
       "generateur": ["mongoexpress"],
       "env": {
-        "ME_CONFIG_MONGODB_ENABLE_ADMIN": "true",
-
+        "ME_CONFIG_MONGODB_URL": "mongodb://admin@mongo:27017",
+        "ME_CONFIG_MONGODB_ADMINPASSWORD_FILE": "/run/secrets/mongo.password.txt",
+        "ME_CONFIG_MONGODB_TLS": "true", "ME_CONFIG_MONGODB_SSL": "true",
+        "ME_CONFIG_MONGODB_TLS_CA_FILE": "/run/secrets/millegrille.cert.pem",
+        "ME_CONFIG_MONGODB_TLS_CERT_FILE": "/run/secrets/cert.pem",
+        "ME_CONFIG_MONGODB_TLS_CERT_KEY_FILE": "/run/secrets/key.pem",
+        "PORT": "443",
         "ME_CONFIG_BASICAUTH": "true",
         "ME_CONFIG_BASICAUTH_USERNAME": "mongo",
         "ME_CONFIG_BASICAUTH_PASSWORD_FILE": "/run/secrets/web.password.txt",
-
-        "ME_CONFIG_MONGODB_ADMINUSERNAME": "admin",
-        "ME_CONFIG_MONGODB_ADMINPASSWORD_FILE": "/run/secrets/mongo.password.txt",
-
-        "VCAP_APP_PORT": "443",
+        "ME_CONFIG_SITE_SSL_KEY_PATH": "/run/secrets/web.key.pem",
         "ME_CONFIG_SITE_SSL_ENABLED": "true",
         "ME_CONFIG_SITE_SSL_CRT_PATH": "/run/secrets/web.cert.pem",
-        "ME_CONFIG_SITE_SSL_KEY_PATH": "/run/secrets/web.key.pem",
-
-        "ME_CONFIG_MONGODB_SERVER": "mongo",
-        "ME_CONFIG_MONGODB_SSL": "true",
-        "ME_CONFIG_MONGODB_SSLVALIDATE": "true",
-        "ME_CONFIG_MONGODB_KEY_FILE": "/run/secrets/key.pem",
-        "ME_CONFIG_MONGODB_CERT_FILE": "/run/secrets/cert.pem",
-        "ME_CONFIG_MONGODB_CA_FILE": "/run/secrets/millegrille.cert.pem"
+        "ME_CONFIG_MONGODB_ENABLE_ADMIN": "true"
       },
       "constraints": ["node.labels.millegrilles.mongoexpress == true"],
       "configs": [
