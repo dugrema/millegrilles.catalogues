@@ -1,6 +1,6 @@
 {
   "nom": "documents_backend",
-  "version": "2024.9.4",
+  "version": "2025.4.33",
   "description": {
     "en": "Documents (back-end)",
     "fr": "Documents (back-end)"
@@ -10,7 +10,7 @@
   "dependances": [
     {
       "name": "documents_backend",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_documents:2024.9.31",
+      "image": "registry.millegrilles.com/millegrilles/documents_rust:2025.4.33",
       "certificat": {
         "roles": ["documents_backend"],
         "domaines": ["Documents"],
