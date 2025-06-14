@@ -1,6 +1,6 @@
 {
   "nom": "relaiweb",
-  "version": "2024.7.0",
+  "version": "2025.4.112",
   "description": {
     "en": "Web relay for commands",
     "fr": "Relai web pour commandes"
@@ -10,7 +10,7 @@
   "dependances": [
     {
       "name": "relaiweb",
-      "image": "docker.maple.maceroc.com:5000/millegrilles_midcompte_python:2024.4.45",
+      "image": "registry.millegrilles.com/millegrilles/midcompte_python:2025.4.112",
       "args": ["-m", "millegrilles_relaiweb", "--verbose"],
       "constraints": ["node.labels.millegrilles.relaiweb == true"],
       "certificat": {
