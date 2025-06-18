@@ -1,12 +1,12 @@
 {
   "nom": "stream",
-  "version": "2025.4.112",
+  "version": "2025.4.114",
   "securite": "2.prive",
   "securityLevels": ["2.prive", "3.protege"],
   "dependances": [
     {
       "name": "stream",
-      "image": "registry.millegrilles.com/millegrilles/midcompte_python:2025.4.112",
+      "image": "registry.millegrilles.com/millegrilles/midcompte_python:2025.4.114",
       "args": ["-m", "millegrilles_streaming"],
       "certificat": {
         "roles": ["stream"],
