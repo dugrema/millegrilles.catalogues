@@ -1,6 +1,6 @@
 {
   "nom": "ai_backend",
-  "version": "2025.4.36",
+  "version": "2025.4.38",
   "description": {
     "en": "AI large language model support (back-end)",
     "fr": "IA support pour modeles de language (back-end)"
@@ -10,7 +10,7 @@
   "dependances": [
     {
       "name": "ai_backend",
-      "image": "registry.millegrilles.com/millegrilles/ai_rust:2025.4.36",
+      "image": "registry.millegrilles.com/millegrilles/ai_rust:2025.4.38",
       "certificat": {
         "roles": ["ai", "llm"],
         "domaines": ["AiLanguage"],
