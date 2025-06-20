@@ -1,12 +1,12 @@
 {
   "nom": "media_1cpu",
-  "version": "2025.4.32",
+  "version": "2025.4.33",
   "securite": "2.prive",
   "securityLevels": ["2.prive", "3.protege", "4.secure"],
   "dependances": [
     {
       "name": "media_1cpu",
-      "image": "registry.millegrilles.com/millegrilles/media_python:2025.4.32",
+      "image": "registry.millegrilles.com/millegrilles/media_python:2025.4.33",
       "certificat": {
         "roles": ["media"],
         "exchanges": ["2.prive", "1.public"]
