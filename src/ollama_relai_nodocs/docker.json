@@ -1,0 +1,77 @@
+{
+  "nom": "ollama_relai_nodocs",
+  "version": "2025.4.88",
+  "securite": "3.protege",
+  "securityLevels": ["3.protege", "4.secure"],
+  "dependances": [
+    {
+      "name": "ollama_relai",
+      "image": "registry.millegrilles.com/millegrilles/ollama_relai_python:2025.4.88",
+      "args": ["-m", "millegrilles_ollama_relai"],
+      "certificat": {
+        "roles": ["ollama_relai"],
+        "domaines": ["ollama_relai"],
+        "exchanges": ["3.protege", "2.prive", "1.public"]
+      },
+      "mounts": [
+        {
+          "source": "ollama-rag",
+          "target": "/var/opt/millegrilles/rag",
+          "type": "volume"
+        }
+      ],
+      "env": {
+        "MQ_HOSTNAME": "${MQ_HOSTNAME}",
+        "MQ_PORT": "${MQ_PORT}",
+        "CERT_PATH": "/run/secrets/cert.pem",
+        "KEY_PATH": "/run/secrets/key.pem",
+        "CA_PATH": "/run/secrets/millegrille.cert.pem",
+        "MG_REDIS_HOST": "redis",
+        "MG_REDIS_PORT": "6379",
+        "DIR_RAG": "/var/opt/millegrilles/rag",
+        "OLLAMA_URL": "http://docker:11434"
+      },
+      "configs": [
+        {
+          "name": "pki.ollama_relai",
+          "current": "cert",
+          "filename": "/run/secrets/cert.pem"
+        },
+        {
+          "name": "pki.millegrille",
+          "filename": "/run/secrets/millegrille.cert.pem"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "pki.ollama_relai",
+          "current": "key",
+          "filename": "key.pem"
+        },
+        {
+          "name": "passwd.redis",
+          "current": "password",
+          "filename": "passwd.redis.txt"
+        }
+      ],
+      "networks": [
+        {
+          "target": "millegrille_net"
+        }
+      ],
+      "resources": {
+        "cpu_limit": 2000000000,
+        "mem_limit": 500000000
+      },
+      "restart_policy": {
+        "condition": "on-failure",
+        "delay": 60000000000,
+        "max_attempts": 1000
+      },
+      "mode": {
+        "mode": "replicated",
+        "replicas": 1
+      }
+    }
+  ]
+}
