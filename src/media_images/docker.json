@@ -1,12 +1,13 @@
 {
-  "nom": "media",
-  "version": "2025.4.33",
+  "nom": "media_images",
+  "version": "2025.4.34",
   "securite": "2.prive",
   "securityLevels": ["2.prive", "3.protege", "4.secure"],
   "dependances": [
     {
-      "name": "media",
-      "image": "registry.millegrilles.com/millegrilles/media_python:2025.4.33",
+      "name": "media_images",
+      "image": "registry.millegrilles.com/millegrilles/media_python:2025.4.34",
+      "args": ["-m", "millegrilles_media", "--images"],
       "certificat": {
         "roles": ["media"],
         "exchanges": ["2.prive", "1.public"]
@@ -28,7 +29,7 @@
       ],
       "configs": [
         {
-          "name": "pki.media",
+          "name": "pki.media_images",
           "current": "cert",
           "filename": "/run/secrets/cert.pem"
         },
@@ -39,7 +40,7 @@
       ],
       "secrets": [
         {
-          "name": "pki.media",
+          "name": "pki.media_images",
           "current": "key",
           "filename": "key.pem"
         },
@@ -54,8 +55,8 @@
         {"target": "bridge"}
       ],
       "resources": {
-        "cpu_limit": 4000000000,
-        "mem_limit": 1000000000
+        "cpu_limit": 1000000000,
+        "mem_limit": 500000000
       },
       "restart_policy": {
         "condition": "on-failure",
@@ -64,7 +65,7 @@
       },
       "mode": {
         "mode": "replicated",
-        "replicas": 1
+        "replicas": 2
       }
     }
   ]
