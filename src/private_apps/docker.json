@@ -1,6 +1,6 @@
 {
   "nom": "private_apps",
-  "version": "2025.4.145",
+  "version": "2025.4.146",
   "securite": "2.prive",
   "securityLevels": ["2.prive", "3.protege"],
   "dependances": [
