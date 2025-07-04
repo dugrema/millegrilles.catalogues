@@ -1,0 +1,46 @@
+{
+  "nom": "kiwix",
+  "version": "2025.4.2",
+  "securite": "1.public",
+  "securityLevels": ["1.public","2.prive","3.protege"],
+  "dependances": [
+    {
+      "name": "kiwix",
+      "image": "ghcr.io/kiwix/kiwix-serve:3.7.0",
+      "args": ["--urlRootLocation", "kiwix/", "/data/*"],
+      "constraints": ["node.labels.millegrilles.kiwix == true"],
+      "mounts": [
+        {"source": "kiwix-data", "target":  "/data", "type": "volume"}
+      ],
+      "networks": [{"target": "millegrille_net", "aliases": ["kiwix"]}],
+      "resources": {
+        "cpu_limit": 1000000000,
+        "mem_limit": 150000000
+      },
+      "restart_policy": {
+        "condition": "on-failure",
+        "delay": 20000000000,
+        "max_attempts": 1000
+      },
+      "mode": {
+        "mode": "replicated",
+        "replicas": 1
+      },
+      "labels": {
+        "securite": "1.public",
+        "url": "https://${HOSTNAME}/kiwix"
+      }
+    }
+  ],
+  "nginx": {"conf": ["kiwix.location"]},
+  "web": {
+    "links": [{
+        "labels": {
+          "fr": {"name": "Kiwix", "description": "Kiwix - copies de sites webs"},
+          "en": {"name": "Kiwix", "description": "Kiwix - website copies"}
+        },
+        "url": "https://${HOSTNAME}/kiwix",
+        "securite": "1.public"
+    }]
+  }
+}
