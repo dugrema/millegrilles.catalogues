@@ -1,6 +1,6 @@
 {
   "nom": "kiwix",
-  "version": "2025.4.2",
+  "version": "2025.4.3",
   "securite": "1.public",
   "securityLevels": ["1.public","2.prive","3.protege"],
   "dependances": [
@@ -15,7 +15,7 @@
       "networks": [{"target": "millegrille_net", "aliases": ["kiwix"]}],
       "resources": {
         "cpu_limit": 1000000000,
-        "mem_limit": 150000000
+        "mem_limit": 600000000
       },
       "restart_policy": {
         "condition": "on-failure",
