@@ -1,5 +1,5 @@
 {
-  "nom": "solr_relay",
+  "nom": "solr_relai",
   "version": "2025.4.121",
   "securite": "3.protege",
   "securityLevels": ["3.protege", "4.secure"],
