@@ -1,13 +1,13 @@
 {
   "nom": "filehost",
-  "version": "2025.4.60",
+  "version": "2025.4.61",
   "securite": "1.public",
   "securityLevels": ["1.public", "2.prive", "3.protege"],
   "dependances": [
     {
       "name": "filehost",
-      "image": "registry.millegrilles.com/millegrilles/filehost_python:2025.4.59",
-      "args": ["-m", "millegrilles_filehost"],
+      "image": "registry.millegrilles.com/millegrilles/filehost_python:2025.4.60",
+      "args": ["-m", "millegrilles_filehost", "--continualcheck", "600"],
       "certificat": {
         "roles": ["filehost"],
         "exchanges": ["1.public"],
