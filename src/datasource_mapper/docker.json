@@ -1,12 +1,12 @@
 {
   "nom": "datasource_mapper",
-  "version": "2025.4.15",
+  "version": "2025.4.16",
   "securite": "3.protege",
   "securityLevels": ["3.protege","4.secure"],
   "dependances": [
     {
       "name": "datasource_mapper",
-      "image": "registry.millegrilles.com/millegrilles/datasource_mapper_python:2025.4.15",
+      "image": "registry.millegrilles.com/millegrilles/datasource_mapper_python:2025.4.16",
       "args": ["-m", "millegrilles_datasourcemapper"],
       "certificat": {
         "roles": ["datasource_mapper"],
