@@ -1,12 +1,12 @@
 {
   "nom": "filecontroler",
-  "version": "2025.4.36",
+  "version": "2025.4.37",
   "securite": "1.public",
   "securityLevels": ["1.public", "2.prive", "3.protege"],
   "dependances": [
     {
       "name": "filecontroler",
-      "image": "registry.millegrilles.com/millegrilles/filecontroler_python:2025.4.36",
+      "image": "registry.millegrilles.com/millegrilles/filecontroler_python:2025.4.37",
       "args": ["-m", "millegrilles_filecontroler"],
       "certificat": {
         "roles": ["filecontroler"],
