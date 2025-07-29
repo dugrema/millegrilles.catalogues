@@ -1,6 +1,6 @@
 {
   "nom": "ollama_relai_nodocs",
-  "version": "2025.4.119",
+  "version": "2025.4.120",
   "securite": "3.protege",
   "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
@@ -9,7 +9,7 @@
       "image": "registry.millegrilles.com/millegrilles/ollama_relai_python:2025.4.119",
       "args": ["-m", "millegrilles_ollama_relai"],
       "certificat": {
-        "roles": ["ollama_relai"],
+        "roles": ["ollama_relai_nodocs", "ollama_relai"],
         "domaines": ["ollama_relai"],
         "exchanges": ["3.protege", "2.prive", "1.public"]
       },
@@ -33,7 +33,7 @@
       },
       "configs": [
         {
-          "name": "pki.ollama_relai",
+          "name": "pki.ollama_relai_nodocs",
           "current": "cert",
           "filename": "/run/secrets/cert.pem"
         },
@@ -44,7 +44,7 @@
       ],
       "secrets": [
         {
-          "name": "pki.ollama_relai",
+          "name": "pki.ollama_relai_nodocs",
           "current": "key",
           "filename": "key.pem"
         },
