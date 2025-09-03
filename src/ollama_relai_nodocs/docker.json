@@ -1,12 +1,12 @@
 {
   "nom": "ollama_relai_nodocs",
-  "version": "2025.4.130",
+  "version": "2025.4.132",
   "securite": "3.protege",
   "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
     {
       "name": "ollama_relai_nodocs",
-      "image": "registry.millegrilles.com/millegrilles/ollama_relai_python:2025.4.130",
+      "image": "registry.millegrilles.com/millegrilles/ollama_relai_python:2025.4.132",
       "args": ["-m", "millegrilles_ollama_relai"],
       "certificat": {
         "roles": ["ollama_relai_nodocs", "ollama_relai"],
