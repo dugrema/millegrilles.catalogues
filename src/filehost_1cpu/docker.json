@@ -1,0 +1,62 @@
+{
+  "nom": "filehost_1cpu",
+  "version": "2025.4.67",
+  "securite": "1.public",
+  "securityLevels": ["1.public", "2.prive", "3.protege"],
+  "dependances": [
+    {
+      "name": "filehost",
+      "image": "registry.millegrilles.com/millegrilles/filehost_python:2025.4.67",
+      "args": ["-m", "millegrilles_filehost", "--continualcheck", "600"],
+      "certificat": {
+        "roles": ["filehost"],
+        "exchanges": ["1.public"],
+        "dns": {"localhost": true, "hostnames": ["filehost"], "domain": true}
+      },
+      "env": {
+        "WEB_CERT": "/run/secrets/web.cert",
+        "WEB_KEY": "/run/secrets/web.key",
+        "WEB_PORT": "1443",
+        "DIR_FILES": "/var/opt/millegrilles/filehost/files",
+        "DIR_DATA": "/var/opt/millegrilles/filehost/data",
+        "DIR_CONFIGURATION": "/var/opt/millegrilles/filehost/configuration"
+      },
+      "constraints": ["node.labels.millegrilles.filehost == true"],
+      "mounts": [
+        {"source": "millegrilles-filehost", "target":  "/var/opt/millegrilles/filehost", "type": "volume"}
+      ],
+      "configs": [
+        {
+          "name": "pki.filehost_1cpu",
+          "current": "cert",
+          "filename": "/run/secrets/web.cert"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "pki.filehost_1cpu",
+          "current": "key",
+          "filename": "web.key"
+        }
+      ],
+      "networks": [
+        {"target": "millegrille_net", "aliases": ["filehost"]},
+        {"target": "bridge"}
+      ],
+      "resources": {
+        "cpu_limit": 1000000000,
+        "mem_limit": 500000000
+      },
+      "restart_policy": {
+        "condition": "on-failure",
+        "delay": 60000000000,
+        "max_attempts": 1000
+      },
+      "mode": {
+        "mode": "replicated",
+        "replicas": 1
+      }
+    }
+  ],
+  "nginx": {"conf": ["filehost.location", "filehost.location.tls", "filehost.proxypass"]}
+}
