@@ -1,6 +1,6 @@
 {
   "nom": "media_videos",
-  "version": "2025.4.36",
+  "version": "2025.4.37",
   "securite": "2.prive",
   "securityLevels": ["2.prive", "3.protege", "4.secure"],
   "dependances": [
@@ -55,7 +55,6 @@
         {"target": "bridge"}
       ],
       "resources": {
-        "cpu_limit": 4000000000,
         "mem_limit": 1000000000
       },
       "restart_policy": {
