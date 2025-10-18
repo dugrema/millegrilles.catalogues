@@ -1,6 +1,6 @@
 {
   "nom": "ollama_relai_nodocs",
-  "version": "2025.5.146",
+  "version": "2025.5.147",
   "securite": "3.protege",
   "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
