@@ -1,13 +1,13 @@
 {
   "nom": "filehost_1cpu",
-  "version": "2025.5.75",
+  "version": "2025.5.76",
   "securite": "1.public",
   "securityLevels": ["1.public", "2.prive", "3.protege"],
   "dependances": [
     {
       "name": "filehost_1cpu",
-      "image": "registry.millegrilles.com/millegrilles/filehost_python:2025.5.75",
-      "args": ["-m", "millegrilles_filehost", "--continualcheck", "1800", "--checkdays", "365"],
+      "image": "registry.millegrilles.com/millegrilles/filehost_python:2025.5.76",
+      "args": ["-m", "millegrilles_filehost", "--continualcheck", "600", "--checkdays", "365"],
       "certificat": {
         "roles": ["filehost"],
         "exchanges": ["1.public"],
@@ -20,9 +20,9 @@
         "DIR_FILES": "/var/opt/millegrilles/filehost/files",
         "DIR_DATA": "/var/opt/millegrilles/filehost/data",
         "DIR_CONFIGURATION": "/var/opt/millegrilles/filehost/configuration",
-        "CHECK_THROTTLE_MS": "30",
-        "CHECK_BATCH_SIZE": "500000000",
-        "CHECK_BATCH_LEN": "500"
+        "CHECK_THROTTLE_MS": "5",
+        "CHECK_BATCH_SIZE": "1000000000",
+        "CHECK_BATCH_LEN": "1000"
       },
       "constraints": ["node.labels.millegrilles.filehost == true"],
       "mounts": [
