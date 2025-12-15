@@ -1,6 +1,6 @@
 {
   "nom": "millesens",
-  "version": "2025.5.7",
+  "version": "2025.5.8",
   "securite": "1.public",
   "securityLevels": ["1.public", "2.prive", "3.protege"],
   "dependances": [
@@ -10,7 +10,7 @@
         {
           "src": "https://docker.maple.maceroc.com/archives/apps/millegrilles_millesens_typescript.2025.5.5.tar.gz",
           "digest": "4OQCILSmEo4J2q6PNppbmOj4b04Ie2YDDh3arfnrb8o8cpjg",
-          "location": "nginx:html/applications/dataviewer"
+          "location": "nginx:html/applications/millesens"
         }
       ]
     }
