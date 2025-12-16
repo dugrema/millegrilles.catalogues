@@ -1,6 +1,6 @@
 {
   "nom": "millesens",
-  "version": "2025.5.10",
+  "version": "2025.5.11",
   "securite": "1.public",
   "securityLevels": ["1.public", "2.prive", "3.protege"],
   "dependances": [
@@ -8,8 +8,8 @@
       "name": "millesens",
       "archives": [
         {
-          "src": "https://docker.maple.maceroc.com/archives/apps/millegrilles_millesens_typescript.2025.5.7.tar.gz",
-          "digest": "4OQCIEcuEfqq8nNMmQWnxMGfXZ5RkKu6YOaPdLcZTWADHXF8",
+          "src": "https://docker.maple.maceroc.com/archives/apps/millegrilles_millesens_typescript.2025.5.11.tar.gz",
+          "digest": "4OQCIARaqiUQ+K1G2tSr7XFtiEuFjvq3xHhpS13VJQyU2eob",
           "location": "nginx:html/applications/millesens"
         }
       ]
@@ -27,7 +27,7 @@
           "fr": {"name": "MilleSens", "description": "Assistant pour appareils domestiques."},
           "en": {"name": "MilleSens", "description": "Home Assistant"}
         },
-        "url": "https://${HOSTNAME}/millesens",
+        "url": "https://${HOSTNAME}/millesens/",
         "securite": "1.public",
         "required_domains": ["MaitreDesCles", "SenseursPassifs"]
       }
