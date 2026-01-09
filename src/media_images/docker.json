@@ -1,12 +1,12 @@
 {
   "nom": "media_images",
-  "version": "2025.4.36",
+  "version": "2025.5.37",
   "securite": "2.prive",
   "securityLevels": ["2.prive", "3.protege", "4.secure"],
   "dependances": [
     {
       "name": "media_images",
-      "image": "registry.millegrilles.com/millegrilles/media_python:2025.4.36",
+      "image": "registry.millegrilles.com/millegrilles/media_python:2025.5.37",
       "args": ["-m", "millegrilles_media", "--images"],
       "certificat": {
         "roles": ["media"],

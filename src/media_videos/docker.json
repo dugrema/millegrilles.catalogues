@@ -1,12 +1,12 @@
 {
   "nom": "media_videos",
-  "version": "2025.4.37",
+  "version": "2025.5.37",
   "securite": "2.prive",
   "securityLevels": ["2.prive", "3.protege", "4.secure"],
   "dependances": [
     {
       "name": "media_videos",
-      "image": "registry.millegrilles.com/millegrilles/media_python:2025.4.36",
+      "image": "registry.millegrilles.com/millegrilles/media_python:2025.5.37",
       "args": ["-m", "millegrilles_media", "--videos"],
       "certificat": {
         "roles": ["media"],
