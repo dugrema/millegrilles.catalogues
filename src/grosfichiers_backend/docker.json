@@ -1,12 +1,12 @@
 {
   "nom": "grosfichiers_backend",
-  "version": "2025.4.183",
+  "version": "2026.0.186",
   "securite": "3.protege",
   "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
     {
       "name": "grosfichiers_backend",
-      "image": "registry.millegrilles.com/millegrilles/grosfichiers_rust:2025.4.183",
+      "image": "registry.millegrilles.com/millegrilles/grosfichiers_rust:2026.0.186",
       "certificat": {
         "roles": ["grosfichiers"],
         "domaines": ["GrosFichiers"],
