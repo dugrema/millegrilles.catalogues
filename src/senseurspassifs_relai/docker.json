@@ -1,6 +1,6 @@
 {
   "nom": "senseurspassifs_relai",
-  "version": "2025.4.20",
+  "version": "2026.0.21",
   "description": {
     "en": "Senseurs Passifs Relay (web)",
     "fr": "Senseurs Passifs Relai (web)"
@@ -10,7 +10,7 @@
   "dependances": [
     {
       "name": "senseurspassifs_relai",
-      "image": "registry.millegrilles.com/millegrilles/senseurspassifs_python:2025.4.20",
+      "image": "registry.millegrilles.com/millegrilles/senseurspassifs_python:2026.0.21",
       "args": ["-m", "senseurspassifs_relai_web"],
      "certificat": {
         "roles": ["senseurspassifs_relai"],
