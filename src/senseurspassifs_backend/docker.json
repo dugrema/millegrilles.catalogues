@@ -1,6 +1,6 @@
 {
   "nom": "senseurspassifs_backend",
-  "version": "2025.5.62",
+  "version": "2026.0.63",
   "description": {
     "en": "Senseurs Passifs (back-end)",
     "fr": "Senseurs Passifs (back-end)"
@@ -10,7 +10,7 @@
   "dependances": [
     {
       "name": "senseurspassifs_backend",
-      "image": "registry.millegrilles.com/millegrilles/senseurspassifs_rust:2025.5.62",
+      "image": "registry.millegrilles.com/millegrilles/senseurspassifs_rust:2026.0.63",
       "certificat": {
         "roles": ["senseurspassifs"],
         "domaines": ["SenseursPassifs"],
