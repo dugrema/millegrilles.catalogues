@@ -1,6 +1,6 @@
 {
   "nom": "private_webapi",
-  "version": "2025.4.59",
+  "version": "2026.0.60",
   "securite": "2.prive",
   "dependances": [
     {
