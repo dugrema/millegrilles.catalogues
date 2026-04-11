@@ -1,12 +1,12 @@
 {
   "nom": "maitredescles",
-  "version": "2025.4.55",
+  "version": "2026.0.58",
   "securite": "3.protege",
   "securityLevels": ["3.protege", "4.secure"],
   "dependances": [
     {
       "name": "maitredescles",
-      "image": "registry.millegrilles.com/millegrilles/maitredescles_rust:2025.4.55",
+      "image": "registry.millegrilles.com/millegrilles/maitredescles_rust:2026.0.58",
       "certificat": {
         "roles": ["maitredescles", "maitrecles"],
         "domaines": ["MaitreDesCles"],

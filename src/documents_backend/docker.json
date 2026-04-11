@@ -1,6 +1,6 @@
 {
   "nom": "documents_backend",
-  "version": "2025.4.33",
+  "version": "2026.0.35",
   "description": {
     "en": "Documents (back-end)",
     "fr": "Documents (back-end)"
@@ -10,7 +10,7 @@
   "dependances": [
     {
       "name": "documents_backend",
-      "image": "registry.millegrilles.com/millegrilles/documents_rust:2025.4.33",
+      "image": "registry.millegrilles.com/millegrilles/documents_rust:2026.0.35",
       "certificat": {
         "roles": ["documents_backend"],
         "domaines": ["Documents"],
