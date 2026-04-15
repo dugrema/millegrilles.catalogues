@@ -1,11 +1,11 @@
 {
   "nom": "mongo",
-  "version": "2025.4.3",
+  "version": "2026.0.1",
   "securite": "4.secure",
   "dependances": [
     {
       "name": "mongo",
-      "image": "mongo:8",
+      "image": "mongo:8.2.6",
       "hostname": "mongo",
       "certificat": {
         "roles": [
