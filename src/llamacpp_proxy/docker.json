@@ -1,0 +1,28 @@
+{
+  "nom": "llamacpp_proxy",
+  "version": "2026.0.1",
+  "securite": "2.prive",
+  "securityLevels": ["2.prive", "3.protege", "4.secure"],
+  "nginx": {
+    "conf": ["llamacpp.server"],
+    "ports": [1445]
+  },
+  "web": {
+    "links": [
+      {
+        "labels": {
+          "fr": {
+            "name": "llama.cpp",
+            "description": "AI inference avec llama.cpp."
+          },
+          "en": {
+            "name": "llama.cpp",
+            "description": "AI inference with llama.cpp."
+          }
+        },
+        "url": "http://${HOSTNAME}:8000",
+        "securite": "2.prive"
+      }
+    ]
+  }
+}
