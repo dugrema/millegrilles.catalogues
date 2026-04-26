@@ -1,0 +1,67 @@
+# Set /jenkins path with `systemctl edit jenkins` and the following:
+# [Service]
+# Environment="JENKINS_PREFIX=/jenkins"
+
+#location ~ "^\/jenkins/static\/[0-9a-fA-F]{{8}}\/(.*)$" {{
+#  # rewrite all static files into requests to the root
+#  # E.g /static/12345678/css/something.css will become /css/something.css
+#  rewrite "^\/jenkins/static\/[0-9a-fA-F]{{8}}\/(.*)" /$1 last;
+#}}
+
+location /jenkins/userContent {{
+  # have nginx handle all the static requests to userContent folder
+  # note : This is the $JENKINS_HOME dir
+#  root /var/lib/jenkins/;
+#  if (!-f $request_filename){{
+#    # this file does not exist, might be a directory or a /**view** url
+#    rewrite (.*) /$1 last;
+#    break;
+#  }}
+  sendfile on;
+}}
+
+location /jenkins {{
+  sendfile off;
+  # set $upstream_jenkins http://jenkins2.maple.maceroc.com:8080;
+  # proxy_pass $upstream_jenkins;
+  # proxy_pass http://jenkins2.maple.maceroc.com:8080;
+  include /etc/nginx/conf.d/modules/jenkins.proxypass;
+  proxy_redirect     http://$http_host:8080 https://$http_host/jenkins/;
+
+  # Required for Jenkins websocket agents
+  proxy_set_header   Connection        $connection_upgrade;
+  proxy_set_header   Upgrade           $http_upgrade;
+
+#  proxy_set_header   Host              $http_host;
+  proxy_set_header   X-Real-IP         $remote_addr;
+  # proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;
+  proxy_set_header   X-Forwarded-Proto $scheme;
+  proxy_max_temp_file_size 0;
+
+  # Activer l'auth plugin
+  auth_request      /auth/verifier_usager;
+  auth_request_set  $auth_x_user_name  $upstream_http_x_user_name;
+#  proxy_set_header  X-Forwarded-User  $auth_x_user_name;
+  proxy_set_header  X-Remote-User $auth_x_user_name;
+
+  #this is the maximum upload size
+  client_max_body_size       10m;
+  client_body_buffer_size    128k;
+
+  proxy_connect_timeout      90;
+  proxy_send_timeout         90;
+  proxy_read_timeout         90;
+  proxy_request_buffering    off; # Required for HTTP CLI commands
+
+  # https://www.jenkins.io/doc/book/system-administration/reverse-proxy-configuration-with-jenkins/reverse-proxy-configuration-nginx/
+  # pass through headers from Jenkins that Nginx considers invalid
+#  ignore_invalid_headers off;
+#  proxy_http_version 1.1;
+#  proxy_request_buffering    off; # Required for HTTP CLI commands
+
+  # Note: component_base utilise limite taille fichier trop petite pour redmine
+  include /etc/nginx/conf.d/component_proxyheaders.include;
+  include /etc/nginx/conf.d/component_gzip.include;
+#  proxy_read_timeout 30s;
+#  client_max_body_size 10M;
+}}

@@ -1,0 +1,1 @@
+proxy_pass http://docker:8080;

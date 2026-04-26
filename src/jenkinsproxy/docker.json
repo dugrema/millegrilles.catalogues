@@ -1,0 +1,27 @@
+{
+  "nom": "jenkinsproxy",
+  "version": "2026.1.1",
+  "securite": "2.prive",
+  "securityLevels": ["2.prive", "3.protege"],
+  "nginx": {
+    "conf": ["jenkins.proxypass","jenkins.rootproxy.location"]
+  },
+  "web": {
+    "links": [
+      {
+        "labels": {
+          "fr": {
+            "name": "Jenkins",
+            "description": "Systeme Jenkins pour builds logiciels."
+          },
+          "en": {
+            "name": "Jenkins",
+            "description": "Jenkins build system."
+          }
+        },
+        "url": "https://${HOSTNAME}/jenkins",
+        "securite": "2.prive"
+      }
+    ]
+  }
+}
