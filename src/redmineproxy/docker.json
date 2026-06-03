@@ -12,7 +12,7 @@
         "labels": {
           "fr": {
             "name": "Redmine",
-            "description": "Systeme Redmine pour gsetion taches et documentation."
+            "description": "Systeme Redmine pour gestion taches et documentation."
           },
           "en": {
             "name": "Jenkins",
