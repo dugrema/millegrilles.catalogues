@@ -1,0 +1,27 @@
+{
+  "nom": "redmineproxy",
+  "version": "2026.1.1",
+  "securite": "2.prive",
+  "securityLevels": ["2.prive", "3.protege"],
+  "nginx": {
+    "conf": ["redmine.proxypass","redmine.rootproxy.location"]
+  },
+  "web": {
+    "links": [
+      {
+        "labels": {
+          "fr": {
+            "name": "Redmine",
+            "description": "Systeme Redmine pour gsetion taches et documentation."
+          },
+          "en": {
+            "name": "Jenkins",
+            "description": "Redmine ticket and documentation system."
+          }
+        },
+        "url": "https://${HOSTNAME}/redmine",
+        "securite": "2.prive"
+      }
+    ]
+  }
+}

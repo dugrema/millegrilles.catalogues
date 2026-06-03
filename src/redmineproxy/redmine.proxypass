@@ -1,0 +1,1 @@
+proxy_pass http://redmine:3000;
