@@ -1,6 +1,6 @@
 {
   "nom": "redmineproxy",
-  "version": "2026.1.1",
+  "version": "2026.1.2",
   "securite": "2.prive",
   "securityLevels": ["2.prive", "3.protege"],
   "nginx": {
@@ -15,7 +15,7 @@
             "description": "Systeme Redmine pour gestion taches et documentation."
           },
           "en": {
-            "name": "Jenkins",
+            "name": "Redmine",
             "description": "Redmine ticket and documentation system."
           }
         },
