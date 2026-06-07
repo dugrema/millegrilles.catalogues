@@ -1,0 +1,9 @@
+{
+  "nom": "matrixconduitproxy",
+  "version": "2026.1.1",
+  "securite": "2.prive",
+  "securityLevels": ["2.prive", "3.protege"],
+  "nginx": {
+    "conf": ["matrix-conduit.proxypass","matrix-conduit.rootproxy.location"]
+  }
+}
