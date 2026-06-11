@@ -1,9 +1,27 @@
 {
   "nom": "matrixconduitproxy",
-  "version": "2026.1.1",
+  "version": "2026.1.2",
   "securite": "2.prive",
   "securityLevels": ["2.prive", "3.protege"],
   "nginx": {
     "conf": ["matrix-conduit.proxypass","matrix-conduit.rootproxy.location"]
+  },
+  "web": {
+    "links": [
+      {
+        "labels": {
+          "fr": {
+            "name": "Matrix",
+            "description": "Serveur de messages."
+          },
+          "en": {
+            "name": "Matrix",
+            "description": "Matrix messaging engine."
+          }
+        },
+        "url": "https://${HOSTNAME}/_matrix",
+        "securite": "2.prive"
+      }
+    ]
   }
 }
